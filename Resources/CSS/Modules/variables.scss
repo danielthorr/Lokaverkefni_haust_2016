@@ -1,0 +1,31 @@
+$tHeight: 100px;
+$tWidth: 80%;
+$tFontSize: 1.1em;
+$tFontFamily: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+
+
+/* Begin color test:
+These colors will be changed on development, they are mainly here for testing */
+
+$color-base: #4f210a;
+
+$color-darker: adjust-color(desaturate(lighten($color-base, 5), 3), $hue: 4);
+$color-lighter-temp: adjust-color($color-base, $red:25, $green:15, $blue:-80);
+$color-lighter: adjust-color($color-lighter-temp, $hue:0, $saturation:-55, $lightness:30);
+$color-footer: adjust-color($color-base, $hue:-5, $saturation:-35, $lightness:-3);
+
+/* End color test */
+
+$font-calibri: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+
+@mixin flex(	$direction:row, $wrap:nowrap, $justify:flex-start, 
+				$align-items:stretch, $align-content:stretch, $order:0
+			)
+{
+	display:flex;
+	flex-flow:$direction $wrap;
+	justify-content: $justify;
+	align-items: $align-items;
+	align-content: $align-content;
+	order:$order;
+}
