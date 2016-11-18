@@ -1,6 +1,6 @@
 <?php
 
-class Thread
+class Question
 {
 	private $connection;
 
