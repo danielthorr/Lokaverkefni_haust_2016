@@ -1,0 +1,19 @@
+Vika1:
+
+	Almennt:
+		- Ákváðum verkefni - Spurningasíða tengd kóðun álíka stackoverflow
+		- Ræddum um verkefnið: hvernig síðan er sett upp, hvernig hún virkar o.s.fr.
+		- Git notkun sett upp og búið til branch fyrir notendurna
+		
+		
+		
+	Todo:
+		- Ákveð git notkun
+		- 
+		
+	Mitt framlag:
+		- "Initialize-aði" github möppuna
+		- Bjó til git branch fyrir mig
+		- "Initialize-aði" git "branch-ið" mitt
+		- Byrjaði að gera html og css grunn fyrir vefsíðuna
+		- Uppfærði master branch með fyrstu útgáfu af html/css grunninum

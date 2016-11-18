@@ -1,0 +1,68 @@
+
+[Spurningasíða tengd kóðun álíka stackoverflow]
+
+ [Spurningakerfi]
+	
+	Spurningar eru flokkaðar niður í "tags"
+		- Hver spurning getur verið með mörg "tags"
+		- Einhverskonar kerfi til þess að merkja spurningu sem "incorrect tag" sem administrator ræður síðan úr um
+		- Notendur geta búið til nýtt tag sem sést ekki fyrr en administrator samþykkir
+ 
+	Notendur geta spurt spurninga
+		- Aðrir notendur geta svarað spurningum
+		- Aðrir notendur geta gefið "upvote" eða "downvote"
+		- Aðrir notendum geta búið til "reply" (meira ætlast sem einhversskonar auka skilaboð, ekki sem svar við spurningu)
+		
+	Notendur geta svarað spurningum
+		- Þau svör hafa "upvote"/"downvote" líka
+		- Hægt er að að gera "reply" við svari (til þess að fá fleiri upplýsingar eða koma einhverjum skilaboðum til skila)
+		
+	
+	
+ 
+ [Síður]
+	Upphafssíða
+		- Yfirlit yfir "categories"
+		- Flokka tags eftir "most used", "recent", o.s.fr. (ekki búið að fullákveða)
+	
+	Category síða - Dynamic
+		- Þegar valið er "tag" er notenda beint á þessa síðu
+		- Þar er hægt að sjá allar spurningar sem innihalda þetta "tag"
+		- Hægt er að flokka eftir "Recent", "Frequently asked", "Most upvoted", o.s.fr. (Mögulega hægt að flokka eftir (24hr/week/month/year etc.))
+	
+	Spurningasíða - Dynamic
+		- Sýnir spurningu og öllu sem tengir því (Sjá spurningakerfi hér ofar)
+		- Edit question (beint á síðu eða popup?)
+		- (Captcha?)
+	
+	Ask question síða
+		- Síða þar sem þú býrð til spurningu
+		- Hægt að setja titil og spurninguna sjálfa
+		- Þarf að skoða vel format options
+		- Hægt er að bæta við "tags" á spurninguna (nauðsynlegt er að hafa a.m.k. eitt "tag")
+	
+	Log in síða - Javascript popup?
+		- Notendafn/Netfang
+		- Password
+	
+	Sign up síða - Javascript popup?
+		- Notendafn
+		- Netfang
+		- Password
+		- (Password aftur?)
+		- (Captcha?)
+	
+	Account síða - Dynamic?
+		- Breyta: Nafn / tölvupóstur / profilemynd / aboutme / fyrirtæki-skóli (/ password?)
+		- Skoða "mínar spurningar" og "mín svör"
+	
+	Profile síða - Dynamic
+		- Sýna profile notanda
+		- (Skoða "Spurningar notendans" og "Svör notendans"?)
+	
+	(Search síða? - dynamic (Google search api?))
+	
+	(Help siða?)
+		- Hver er tilgangur síðunnar
+		- Hvernig virkar síðan
+		- (FAQ?)

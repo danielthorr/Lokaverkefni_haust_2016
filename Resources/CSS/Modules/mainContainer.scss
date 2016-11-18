@@ -1,0 +1,20 @@
+.mainContainer 
+{
+	width: 90%;
+	height:100%;
+	margin: 0 auto;
+	@include flex($wrap:nowrap);
+	
+	.mainSection
+	{
+		flex-grow: 3;
+		height: $tHeight;
+		margin: 0 auto;
+		background-color: $color-lighter;
+	}
+	
+	.sidebar
+	{
+		flex-grow:1;
+	}
+}
