@@ -2,6 +2,7 @@
 
 class User
 {
+    // Connection to the database
 	private $connection;
 
 	public function __construct($connection_name)
@@ -13,18 +14,17 @@ class User
 		}
 	}
 
-	/**
-	*	@function name: newUser
-	*
-	*	This function creates a new user and inserts him into the database
-	*
-	* @usage example: $db_object->newUser('example_username', 'example_password');
-	*
-	* @param username varchar(30)
-	* @param password varchar(255)
-	*
-	* @returns boolean
-	*/
+    /**
+     * @function name: newUser
+     *
+     *    This function creates a new user and inserts them into the database
+     *
+     * @usage example: $db_object->newUser('example_username', 'example_password');
+     *
+     * @param varchar $username
+     * @param varchar $password
+     * @return bool
+     */
 	public function newUser($username, $password)
 	{
 		$stmt = $this->connection->prepare('call NewUser(?,?)');
@@ -41,18 +41,17 @@ class User
 		}
 	}
 
-	/**
-	*	@function name: loginValidation
-	*
-	*	This function check whether a user with a given username and password exists in the database, and if so, returns information about him.
-	*
-	* @usage example: $db_object->loginValidation('example_username', 'example_password');
-	*
-	* @param username varchar(30)
-	* @param password varchar(255)
-	*
-	* @returns array()
-	*/
+    /**
+     * @function name: loginValidation
+     *
+     *    This function check whether a user with a given username and password exists in the database, and if so, returns information about him.
+     *
+     * @usage example: $db_object->loginValidation('example_username', 'example_password');
+     *
+     * @param varchar $username
+     * @param varchar $password
+     * @return array
+     */
 	public function loginValidation($username, $password)
 	{
 		$stmt = $this->connection->prepare('call LoginValidation(?,?)');
