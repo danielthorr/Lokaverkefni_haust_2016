@@ -1,5 +1,8 @@
 <?php
 
+require_once 'Classes/Image.php';
+session_start();
+
 class User
 {
     // Connection to the database
@@ -8,7 +11,7 @@ class User
 	public function __construct($connection_name)
 	{
 		if(!empty($connection_name)) {
-			$connection = $connection_name;
+			$this->connection = $connection_name;
 		} else {
 			throw new Exception("Could not connect to database");
 		}
@@ -67,4 +70,14 @@ class User
 			return array();
 		}
 	}
+
+	public function updateProfilePicture($destination) {
+        $image = new Image($destination,$this->connection);
+
+        try {
+            $image->upload();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
