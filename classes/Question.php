@@ -9,7 +9,7 @@ class Question
 	public function __construct($connection_name)
 	{
 		if (!empty($connection_name)) {
-			$connection = $connection_name;
+            $this->connection = $connection_name;
 		} else {
 			throw new Exception("Can't connect to database");
 		}
