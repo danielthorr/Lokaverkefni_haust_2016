@@ -6,10 +6,10 @@ class Question
 {
 	private $connection;
 
-	public function __construct($connection_name)
+	public function __construct($connection)
 	{
-		if (!empty($connection_name)) {
-            $this->connection = $connection_name;
+		if (!empty($connection)) {
+            $this->connection = $connection;
 		} else {
 			throw new Exception("Can't connect to database");
 		}
@@ -27,28 +27,55 @@ class Question
      * @param int $author_id
      * @return none
      */
-	public function newQuestion($title,$text,$author_id)
+	public function newQuestion($title,$text,$tags)
 	{
+        // Set spurninguna í gagnagrunninn
 		$stmt = $this->connection->prepare('call NewQuestion(?,?,?)');
 		$stmt->bindParam(1,$title);
 		$stmt->bindParam(2,$text);
-		$stmt->bindParam(3,$author_id);
+		$stmt->bindParam(3,$_SESSION['uid']);
 
 		try {
 			// Býr til spurninguna
 			$stmt->execute();
 
-			$stmt = $this->connection->prepare('call GetLatestThreadByUserID(?)');
+			$stmt = $this->connection->prepare('call GetLatestQuestionByUserID(?)');
 			$stmt->bindParam(1,$_SESSION['uid']);
 
 			try {
 				// Sækir ID-ið á nýju spurningunni
 				$stmt->execute();
-
 				$question_id = $stmt->fetch(PDO::FETCH_ASSOC);
-				
-				// Redirect-ar notandann á nýju spurninguna
-				header("Location: showquestion.php?qid=" . $question_id);
+
+                // Set tögin (tags) í gagnagrunninn
+                $tags = explode(',', str_replace(' ', '', $tags)); // Breyti breytunni í fylki
+
+                foreach ($tags as $tag) {
+                    // Næ í ID-ið á taginu
+                    $stmt = $this->connection->prepare('call GetIDByTagName(?)');
+                    $stmt->bindParam(1,$tag);
+
+                    try {
+                        $stmt->execute();
+                        $tagID = $stmt->fetch(PDO::FETCH_ASSOC);
+                    } catch (PDOException $e) {
+                        echo $e->getMessage();
+                    }
+
+                    // Set tagið í gagnagrunninn
+                    $stmt = $this->connection->prepare('call NewTag(?,?,?)');
+                    $stmt->bindParam(1, $question_id);
+                    $stmt->bindParam(2, tagID);
+                    $stmt->bindParam(3, $_SESSION['uid']);
+
+                    // Redirect-ar notandann á nýju spurninguna
+                    header("Location: showquestion.php?qid=" . $question_id);
+                    try {
+                        $stmt->execute();
+                    } catch(PDOException $e) {
+                        echo $e->getMessage();
+                    }
+                }
 
 			} catch (PDOException $e) {
 				echo $e->getMessage();
