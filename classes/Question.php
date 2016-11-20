@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 class Question
 {
 	private $connection;
@@ -45,7 +43,7 @@ class Question
 			try {
 				// Sækir ID-ið á nýju spurningunni
 				$stmt->execute();
-				$question_id = $stmt->fetch(PDO::FETCH_ASSOC);
+				$question_id = $stmt->fetch(PDO::FETCH_ASSOC)['id'];
 
                 // Set tögin (tags) í gagnagrunninn
                 $tags = explode(',', str_replace(' ', '', $tags)); // Breyti breytunni í fylki
@@ -57,7 +55,7 @@ class Question
 
                     try {
                         $stmt->execute();
-                        $tagID = $stmt->fetch(PDO::FETCH_ASSOC);
+                        $tagID = $stmt->fetch(PDO::FETCH_ASSOC)['id'];
                     } catch (PDOException $e) {
                         echo $e->getMessage();
                     }
@@ -65,7 +63,7 @@ class Question
                     // Set tagið í gagnagrunninn
                     $stmt = $this->connection->prepare('call NewTag(?,?,?)');
                     $stmt->bindParam(1, $question_id);
-                    $stmt->bindParam(2, tagID);
+                    $stmt->bindParam(2, $tagID);
                     $stmt->bindParam(3, $_SESSION['uid']);
 
                     // Redirect-ar notandann á nýju spurninguna

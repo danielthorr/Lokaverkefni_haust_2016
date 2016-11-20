@@ -1,7 +1,6 @@
 <?php
 
 require_once 'Classes/Image.php';
-session_start();
 
 class User
 {
