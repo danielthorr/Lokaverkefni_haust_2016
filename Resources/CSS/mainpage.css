@@ -54,9 +54,9 @@ table {
   margin-right: 0; }
 
 header {
-  height: 100px;
   width: 100%;
-  background-color: #8B7D71; }
+  background-color: #8B7D71;
+  border: 1px solid black; }
 
 .menubar {
   display: flex;
@@ -64,7 +64,9 @@ header {
   justify-content: flex-start;
   align-items: stretch;
   align-content: stretch;
-  order: 0; }
+  order: 0;
+  width: 75vw;
+  margin: 0 auto; }
   .menubar div {
     display: flex;
     flex-flow: row nowrap;
@@ -72,11 +74,22 @@ header {
     align-items: stretch;
     align-content: stretch;
     order: 0; }
+    .menubar div li a {
+      display: block;
+      height: 30px;
+      width: 120px;
+      line-height: 30px;
+      color: white;
+      text-decoration: none;
+      padding-left: 5px;
+      border-left: 1px solid black;
+      border-right: 1px solid black; }
 
 .mainContainer {
-  width: 90%;
+  width: 75vw;
   height: 100%;
-  margin: 0 auto;
+  margin: 20px auto;
+  border: none;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -84,13 +97,137 @@ header {
   align-content: stretch;
   order: 0; }
   .mainContainer .mainSection {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    order: 0;
     flex-grow: 3;
-    height: 100px;
-    margin: 0 auto;
-    background-color: #C5A88D; }
+    margin: 0 auto; }
+    .mainContainer .mainSection .sectionTabs {
+      border: none; }
+      .mainContainer .mainSection .sectionTabs ul {
+        border: none;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: stretch;
+        align-content: stretch;
+        order: 0; }
+        .mainContainer .mainSection .sectionTabs ul li {
+          background-color: #C5A88D;
+          cursor: pointer;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 2px;
+          padding: 2px;
+          border: 1px solid black; }
+        .mainContainer .mainSection .sectionTabs ul li.active {
+          border-bottom: none; }
+    .mainContainer .mainSection .sectionArea {
+      background-color: #C5A88D;
+      min-height: 1100px; }
+      .mainContainer .mainSection .sectionArea .qOverview {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        order: 0;
+        margin: 20px 10px;
+        background-color: #806F60;
+        padding: 6px 10px; }
+        .mainContainer .mainSection .sectionArea .qOverview .qOverviewInfo {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: flex-start;
+          align-items: stretch;
+          align-content: stretch;
+          order: 0;
+          width: 30%;
+          border-right: 1px solid black; }
+          .mainContainer .mainSection .sectionArea .qOverview .qOverviewInfo .qOverviewInfoDates {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: stretch;
+            align-content: stretch;
+            order: 0;
+            margin-left: 6px;
+            margin-right: 16px; }
+          .mainContainer .mainSection .sectionArea .qOverview .qOverviewInfo .qOverviewInfoBoxes {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: stretch;
+            align-content: stretch;
+            order: 0; }
+            .mainContainer .mainSection .sectionArea .qOverview .qOverviewInfo .qOverviewInfoBoxes div {
+              display: flex;
+              flex-flow: column nowrap;
+              justify-content: flex-start;
+              align-items: stretch;
+              align-content: stretch;
+              order: 0;
+              text-align: center;
+              border: 1px solid black;
+              margin-top: 4px; }
+        .mainContainer .mainSection .sectionArea .qOverview .qOverviewSection {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: flex-start;
+          align-items: stretch;
+          align-content: stretch;
+          order: 0;
+          width: 55%;
+          margin-left: 20px; }
+          .mainContainer .mainSection .sectionArea .qOverview .qOverviewSection .qOverviewSectionName {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: stretch;
+            order: 0;
+            flex: 1; }
+            .mainContainer .mainSection .sectionArea .qOverview .qOverviewSection .qOverviewSectionName a {
+              text-decoration: none;
+              color: white;
+              font-size: 1.4em; }
+          .mainContainer .mainSection .sectionArea .qOverview .qOverviewSection .qOverviewTags {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: stretch;
+            align-content: stretch;
+            order: 0; }
+            .mainContainer .mainSection .sectionArea .qOverview .qOverviewSection .qOverviewTags a {
+              text-decoration: none;
+              color: lightgray;
+              font-size: 0.9em;
+              padding: 2px 4px;
+              background-color: #8B7D71;
+              border: 1px solid #998E84;
+              border-radius: 2px;
+              margin: 0 2px; }
+        .mainContainer .mainSection .sectionArea .qOverview .qOverviewProfile {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: flex-start;
+          align-items: stretch;
+          align-content: stretch;
+          order: 0;
+          width: 15%; }
   .mainContainer .sidebar {
     flex-grow: 1;
+    margin-left: 5px;
     background-color: #5A727C; }
+
+.banner {
+  width: 75vw;
+  height: 120px;
+  margin: 20px auto;
+  background-color: #535C60;
+  border: 1px solid black; }
 
 footer {
   width: 100%;
@@ -115,7 +252,5 @@ html, body {
   min-height: 100vh; }
 
 /* Below this line are temporary values mainly used for testing */
-body * {
-  border: 1px solid black; }
 
 /*# sourceMappingURL=mainpage.css.map */
