@@ -69,6 +69,26 @@ class User
 		}
 	}
 
+    public function updateUser($uid,$username,$password,$email,$title,$description,$country)
+    {
+        $stmt = $this->connection->prepare('call UpdateUserInfo(?,?,?,?,?,?,?)');
+        $stmt->bindParam(1,$uid);
+        $stmt->bindParam(2,$username);
+        $stmt->bindParam(3,$password);
+        $stmt->bindParam(4,$email);
+        $stmt->bindParam(5,$title);
+        $stmt->bindParam(6,$description);
+        $stmt->bindParam(7,$country);
+
+        try {
+            $stmt->execute();
+            header("Location: $_SERVER[HTTP_REFERERER]");
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+	}
+
     /**
      * @function name: loginValidation
      *
