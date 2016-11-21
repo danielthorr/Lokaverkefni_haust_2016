@@ -10,11 +10,13 @@
 		flex-grow: 3;
 		height: $tHeight;
 		margin: 0 auto;
-		background-color: $color-lighter;
+		//background-color: $color-lighter;
+		background-color:$colorLightest;
 	}
 	
 	.sidebar
 	{
 		flex-grow:1;
+		background-color:$colorAccentLight;
 	}
 }
