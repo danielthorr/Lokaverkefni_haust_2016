@@ -1,22 +1,138 @@
 .mainContainer 
 {
-	width: 90%;
+	width: 75vw;
 	height:100%;
-	margin: 0 auto;
+	margin: 20px auto;
+	border:none;
 	@include flex($wrap:nowrap);
 	
 	.mainSection
 	{
+		@include flex($direction:column);
 		flex-grow: 3;
-		height: $tHeight;
 		margin: 0 auto;
-		//background-color: $color-lighter;
-		background-color:$colorLightest;
+		
+		.sectionTabs
+		{
+			border:none;
+			
+			ul
+			{
+				border:none;
+				@include flex($justify:flex-end);
+				
+				li
+				{
+					background-color:$colorLightest;
+					cursor:pointer;
+					border-top-left-radius:8px;
+					border-top-right-radius:2px;
+					padding:2px;
+					border:1px solid black;
+				}
+				
+				li.active
+				{
+					border-bottom:none;
+				}
+			}
+		}
+		
+		.sectionArea
+		{
+			background-color:$colorLightest;
+			min-height:1100px;
+			
+			.qOverview
+			{
+				@include flex();
+				margin: 20px 10px;
+				background-color:$colorDark;
+				padding: 6px 10px;
+				
+				.qOverviewInfo
+				{
+					@include flex($direction:column);
+					width:30%;
+					border-right:1px solid black;
+					
+					.qOverviewInfoDates
+					{
+						@include flex($justify:space-between);
+						margin-left:6px;
+						margin-right:16px;
+					}
+					
+					.qOverviewInfoBoxes
+					{
+						@include flex($justify:space-around);
+
+						
+						div
+						{
+							@include flex($direction:column);
+							text-align:center;
+							border:1px solid black;
+							margin-top:4px;
+						}
+					}
+				}
+				
+				.qOverviewSection
+				{
+					@include flex($direction:column);
+					width:55%;
+					margin-left:20px;
+					
+					.qOverviewSectionName
+					{
+						@include flex($align-items:center);
+						flex:1;
+						a {
+							text-decoration:none;
+							color:white;
+							font-size:1.4em;
+						}
+					}
+					
+					.qOverviewTags
+					{
+						@include flex();
+						a {
+							text-decoration:none;
+							color:lightgray;
+							font-size:0.9em;
+							padding:2px 4px;
+							background-color: $colorLight;
+							border: 1px solid $colorBase;
+							border-radius:2px;
+							margin: 0 2px;
+						}
+					}
+				}
+				
+				.qOverviewProfile
+				{
+					@include flex($direction:column);
+					width:15%;
+				}
+			}
+		}
 	}
 	
 	.sidebar
 	{
 		flex-grow:1;
+		margin-left:5px;
 		background-color:$colorAccentLight;
 	}
+}
+
+.banner
+{
+	width:75vw;
+	height:120px;
+	margin: 20px auto;
+	background-color:$colorAccent;
+	border:1px solid black;
 }
