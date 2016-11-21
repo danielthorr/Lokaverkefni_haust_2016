@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Classes/Image.php';
+require_once 'Image.php';
 
 class User
 {
@@ -14,6 +14,30 @@ class User
 		} else {
 			throw new Exception("Could not connect to database");
 		}
+	}
+
+    /**
+     * @function name: getUserInfo
+     *
+     *    This function gets information about a user.
+     *
+     * @usage example: $db_object->getUserInfo('503');
+     *
+     * @param int $user_id
+     * @return array()
+     */
+    public function getUserInfo($user_id)
+    {
+        $stmt = $this->connection-prepare('call GetUserInfo(?)');
+        $stmt->bindParam(1,$user_id);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
 	}
 
     /**
