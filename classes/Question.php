@@ -84,6 +84,21 @@ class Question
 		}
 	}
 
+    public function newQuestionVote($question_id,$vote)
+    {
+        $stmt = $this->connection->prepare('call NewQuestionVote(?,?,?)');
+        $stmt->bindParam(1,$question_id);
+        $stmt->bindParam(2,$vote);
+        $stmt->bindParam(3,$_SESSION['uid']);
+
+        try {
+            $stmt->execute();
+            header("Location: $_SERVER[HTTP_REFERERER]");
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+	}
+
     /**
      * @function name: getComments
      *

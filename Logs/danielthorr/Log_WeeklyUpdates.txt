@@ -1,19 +1,28 @@
 Vika1:
 
 	Almennt:
-		- Ákváðum verkefni - Spurningasíða tengd kóðun álíka stackoverflow
-		- Ræddum um verkefnið: hvernig síðan er sett upp, hvernig hún virkar o.s.fr.
-		- Git notkun sett upp og búið til branch fyrir notendurna
+		* Ákváðum verkefni - Spurningasíða tengd kóðun álíka stackoverflow
+		* Ræddum um verkefnið: hvernig síðan er sett upp, hvernig hún virkar o.s.fr.
+		* Git notkun sett upp og búið til branch fyrir notendurna
+		
+		
+		
+	Mitt framlag:
+		* "Initialize-aði" github möppuna
+		* Bjó til git branch fyrir mig
+		* "Initialize-aði" git "branch-ið" mitt
+		* Byrjaði að gera html og css grunn fyrir vefsíðuna
+		* Uppfærði master branch með fyrstu útgáfu af html/css grunninum
 		
 		
 		
 	Todo:
-		- Ákveð git notkun
-		- 
+		1. Byggja grunninn á html
+			- Skipuleggja html
+			- Nota css til þess að finna réttar stærðir svo það líti rétt út
+			
+		2. Gera responsive design
+			
+		2. Finna og ákveða litaþema með css
 		
-	Mitt framlag:
-		- "Initialize-aði" github möppuna
-		- Bjó til git branch fyrir mig
-		- "Initialize-aði" git "branch-ið" mitt
-		- Byrjaði að gera html og css grunn fyrir vefsíðuna
-		- Uppfærði master branch með fyrstu útgáfu af html/css grunninum
+		3. Búa til animations og fl. með javascript
