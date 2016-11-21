@@ -2,6 +2,25 @@ header
 {
 	height: $tHeight;
 	width:100%;
+	background-color:$colorLight;
 	
+}
+
+.menubar 
+{
+	@include flex();
 	
+	div 
+	{
+		@include flex();
+		
+		ul
+		{
+			
+			a
+			{
+				
+			}
+		}
+	}
 }
