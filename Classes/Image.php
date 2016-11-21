@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 class Image
 {
     private $connection;        // Connection to the database
