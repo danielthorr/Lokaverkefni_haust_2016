@@ -25,11 +25,13 @@ class Image
             return false;
         } else if ($file['size'] == 0) {
             $this->messages[] = $file['name'] . ' is an empty file.';
+            return false;
         } else if ($file['size'] > $this->maxSize) {
             $this->messages[] = $file['name'] . ' exceeds the maximum size for a file ($this->getMaxSize()).';
-        } else {
-            return true;
+            return false;
         }
+        
+        return true;
     }
 
     protected function checkFileType($file) {
