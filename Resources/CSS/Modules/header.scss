@@ -1,0 +1,36 @@
+header
+{
+	width:100%;
+	background-color:$colorLight;
+	border: 1px solid black;
+	
+}
+
+.menubar 
+{
+	@include flex();
+	width:75vw;
+	margin: 0 auto;
+	
+	div 
+	{
+		@include flex();
+		
+		li
+		{
+			
+			a
+			{
+				display: block;
+				height:30px;
+				width:120px;
+				line-height:30px;
+				color:white;
+				text-decoration: none;
+				padding-left:5px;
+				border-left: 1px solid black;
+				border-right: 1px solid black;
+			}
+		}
+	}
+}

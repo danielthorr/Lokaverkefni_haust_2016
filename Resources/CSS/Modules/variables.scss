@@ -1,0 +1,33 @@
+// Colors: Input "color libraries"
+@import "colors/testColors.scss";
+
+//Variables starting with t are test variables
+$tHeight: 100px;
+$tWidth: 80%;
+$tFontSize: 1.1em;
+$tFontFamily: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+
+$font-calibri: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+
+@mixin flex(	$direction:row, $wrap:nowrap, $justify:flex-start, 
+				$align-items:stretch, $align-content:stretch, $order:0
+			)
+{
+	display:flex;
+	flex-flow:$direction $wrap;
+	justify-content: $justify;
+	align-items: $align-items;
+	align-content: $align-content;
+	order:$order;
+}
+
+
+//Properties to set with classes
+.first {
+	margin-left:0;
+	margin-right:auto;
+}
+.last {
+	margin-left:auto;
+	margin-right:0;
+}
