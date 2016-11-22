@@ -21,7 +21,13 @@ if (isset($_GET['tag'])) {
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>
+        <?php
+            if (isset($_SESSION['uid'])) {
+                echo $_SESSION['username'];
+            }
+        ?>
+    </title>
 	<link rel="stylesheet" href="Resources/CSS/mainpage.css">
 
 </head>
@@ -33,12 +39,14 @@ if (isset($_GET['tag'])) {
 				<li><a href="index.html">Home</a></li>
 				<li><a href="#">Categories</a></li>
 			</div>
-			<?php if (!isset($_SESSION['uid'])): ?>
-                <div class="last">
-					<li><a href="#">Log in</a></li>
-					<li><a href="#">Sign up</a></li>
-				</div>
-			<?php endif; ?>
+			<div class="last">
+                <?php if (!isset($_SESSION['uid'])): ?>
+                    <li><a href="login.php">Log in</a></li>
+                    <li><a href="#">Sign up</a></li>
+                <?php else: ?>
+                    <li id="logout"><a href="#" id="logout">Log out</a></li>
+                <?php endif; ?>
+			</div>
 		</ul>
 	</header>
 	
