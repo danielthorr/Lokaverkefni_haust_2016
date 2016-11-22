@@ -99,6 +99,45 @@ class Question
         }
 	}
 
+    public function getQuestionScore($question_id)
+    {
+        $stmt = $this->connection->prepare('call GetQuestionScore(?)');
+        $stmt->bindParam(1,$question_id);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC)['score'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+	}
+
+    public function getQuestionViews($question_id)
+    {
+        $stmt = $this->connection->prepare('call GetQuestionViews(?)');
+        $stmt->bindParam(1,$question_id);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC)['views'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+	}
+
+    public function getLatestComment($question_id)
+    {
+        $stmt = $this->connection->prepare('call GetLatestComment(?)');
+        $stmt->bindParam(1,$question_id);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+	}
+
     /**
      * @function name: getComments
      *
@@ -124,6 +163,33 @@ class Question
 		}
 	}
 
+    public function getAllQuestions()
+    {
+        $stmt = $this->connection->prepare('call GetAllQuestions');
+
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+	}
+
+    public function getQuestionsByTag($tag)
+    {
+        $stmt = $this->connection->prepare('call GetQuestionByTagID(?)');
+        $stmt->bindParam(1,$tag);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+	}
+
     /**
      * @function name: getQuestionTags
      *
@@ -136,7 +202,7 @@ class Question
      */
 	public function getQuestionTags($question_id)
 	{
-		$stmt = $this->connection->prepare('call GetQuestionTags(?)');
+		$stmt = $this->connection->prepare('call GetQuestionTag(?)');
 		$stmt->bindParam(1,$question_id);
 
 		try {
