@@ -25,7 +25,9 @@ if (isset($_GET['tag'])) {
         <?php
             if (isset($_SESSION['uid'])) {
                 echo $_SESSION['username'];
-            }
+            } else {
+				echo "Not logged in";
+			}
         ?>
     </title>
 	<link rel="stylesheet" href="Resources/CSS/mainpage.css">
@@ -44,7 +46,7 @@ if (isset($_GET['tag'])) {
                     <li><a href="login.php">Log in</a></li>
                     <li><a href="#">Sign up</a></li>
                 <?php else: ?>
-                    <li id="logout"><a href="#" id="logout">Log out</a></li>
+                    <li id="logout"><a href="process.php?action=logout" id="logout">Log out</a></li>
                 <?php endif; ?>
 			</div>
 		</ul>
@@ -68,6 +70,23 @@ if (isset($_GET['tag'])) {
 					<li>Top: All time</li>
 				</ul>
 			</div>
+            <div class="loginform-in">
+                <h1>User Login</h1>
+                <div class="err" id="login-error"></div>
+                <fieldset>
+                    <form action="login_process.php" id="loginform-in" method="post">
+                        <h1 class="test"></h1>
+                        <ul>
+                            <li> <label for="name">Username </label>
+                                <input type="text" size="30"  name="username" id="username"  /></li>
+                            <li> <label for="name">Password</label>
+                                <input type="password" size="30"  name="password" id="password"  /></li>
+                            <li> <label></label>
+                                <input type="submit" id="login" name="login" value="Login" class="loginbutton" ></li>
+                        </ul>
+                    </form>
+                </fieldset>
+            </div>
 			<div class="sectionArea">
                 <!-- List all questions -->
                 <?php foreach ($questions as $q): ?>
