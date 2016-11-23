@@ -8,6 +8,7 @@ $(document).ready(function() {
            data: $('#loginform-in').serialize(),
            success: function(html) {
                if (html == 'true') {
+                   setTimeout('window.location.href = "index-test.php"; ',4000);
                } else {
                    $('#login-error').css('display', 'inline', 'important');
                    $('#login-error').html("Wrong username or password");
