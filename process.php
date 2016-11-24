@@ -96,7 +96,7 @@ switch($action) {
         if ($userExists) {
             $_SESSION['uid'] = $userInfo[0]; // User ID
             $_SESSION['username'] = $_POST['username'];
-            header("Location: profile.php");
+            //header("Location: profile.php");
         } else {
             header("Location: index.php?error=wrong_login_credentials");
         }
@@ -104,7 +104,7 @@ switch($action) {
 
     case 'logout':
         $_SESSION = []; // Eyði öllu úr $_SESSION arrayinu
-        header("Location: Index.php");
+        //header("Location: Index.php");
         break;
 
     case 'updateProfilePicture':
