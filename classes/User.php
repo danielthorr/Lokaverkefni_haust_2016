@@ -100,9 +100,9 @@ class User
      * @param varchar $password
      * @return array
      */
-	public function loginValidation($username, $password)
+	public function validateUser($username, $password)
 	{
-		$stmt = $this->connection->prepare('call LoginValidation(?,?)');
+		$stmt = $this->connection->prepare('call ValidateUser(?,?)');
 		$stmt->bindParam(1,$username);
 		$stmt->bindParam(2,$password);
 
