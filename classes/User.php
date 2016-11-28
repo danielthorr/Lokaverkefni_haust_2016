@@ -51,13 +51,12 @@ class User
      * @param varchar $password
      * @return bool
      */
-	public function newUser($username, $password,$email,$country)
+	public function newUser($username, $password,$email)
 	{
-		$stmt = $this->connection->prepare('call NewUser(?,?,?,?)');
+		$stmt = $this->connection->prepare('call NewUser(?,?,?)');
 		$stmt->bindParam(1,$username);
 		$stmt->bindParam(2,$password);
         $stmt->bindParam(3,$email);
-        $stmt->bindParam(4,$country);
 
 		try {
 			$stmt->execute();

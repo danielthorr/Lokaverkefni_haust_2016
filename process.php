@@ -76,7 +76,6 @@ switch($action) {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-        $country = $_POST['country'];
 
         // Athuga hvort emailið sé gilt.
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -84,8 +83,8 @@ switch($action) {
         }
 
         // Bý til nýjan notanda og set hann í gagnagrunninn
-        if ($user->newUser($username, $password, $email, $country)) {
-            header("Location: Index.php");
+        if ($user->newUser($username, $password, $email)) {
+            header("Location: Index-test.php");
         }
 
         break;
