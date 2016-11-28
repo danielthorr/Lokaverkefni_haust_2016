@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,12 +17,13 @@
     <h1>User Login</h1>
     <div class="err" id="login-error"></div>
     <fieldset>
-        <form method="post">
+        <form action="process.php?action=login" id="loginform-in" method="post">
+            <h1><?php if (isset($_SESSION['uid'])) { echo $_SESSION['username']; } ?></h1>
             <ul>
                 <li> <label for="name">Username </label>
-                    <input type="text" size="30"  name="name" id="name"  /></li>
+                    <input type="text" size="30"  name="username" id="username"  /></li>
                 <li> <label for="name">Password</label>
-                    <input type="password" size="30"  name="word" id="word"  /></li>
+                    <input type="password" size="30"  name="password" id="password"  /></li>
                 <li> <label></label>
                     <input type="submit" id="login" name="login" value="Login" class="loginbutton" ></li>
             </ul>

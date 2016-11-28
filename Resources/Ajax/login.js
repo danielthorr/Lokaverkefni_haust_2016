@@ -1,25 +1,28 @@
 $(document).ready(function() {
-   $('#login').click(function() {
-       username = $('#username').val();
-       password = $('#password').val();
+   $('#loginform-in').submit(function(e) {
+       e.preventDefault();
 
        $.ajax({
            type: "POST",
-           url: "process.php?action=login",
-           data: "username=" + username + "&password=" + password,
+           url: "login_process.php",
+           data: $('#loginform-in').serialize(),
            success: function(html) {
                if (html == 'true') {
-                   window.location = "index-test.php";
+                   setTimeout('window.location.href = "index-test.php"; ',4000);
                } else {
                    $('#login-error').css('display', 'inline', 'important');
                    $('#login-error').html("Wrong username or password");
                }
            },
-           beforeSend:function() {
+           error: function() {
+               alert("Failed");
+           },
+           /*beforeSend:function() {
                $('#login-error').css('display', 'inline', 'important');
                $('#login-error').html("Loading...");
-           }
+           }*/
        });
+       e.preventDefault();
        return false;
    });
 });
