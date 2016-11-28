@@ -17,7 +17,7 @@
     <h1>User Login</h1>
     <div class="err" id="login-error"></div>
     <fieldset>
-        <form action="login_process.php" id="loginform-in" method="post">
+        <form action="process.php?action=login" id="loginform-in" method="post">
             <h1><?php if (isset($_SESSION['uid'])) { echo $_SESSION['username']; } ?></h1>
             <ul>
                 <li> <label for="name">Username </label>

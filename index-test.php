@@ -70,7 +70,7 @@ if (isset($_GET['tag'])) {
 					<li>Top: All time</li>
 				</ul>
 			</div>
-            <div class="loginform-in">
+            <!--<div class="loginform-in">
                 <h1>User Login</h1>
                 <div class="err" id="login-error"></div>
                 <fieldset>
@@ -86,57 +86,102 @@ if (isset($_GET['tag'])) {
                         </ul>
                     </form>
                 </fieldset>
-            </div>
+            </div>-->
+            <!--<div class="signupform-in">
+                <h1>User Signup</h1>
+                <div class="err" id="signup-error"></div>
+                <fieldset>
+                    <form action="process.php?action=signup" id="signupform-in" method="post">
+                        <h1 class="test"></h1>
+                        <ul>
+                            <li> <label for="username">Username </label>
+                                <input type="text" size="30"  name="username" id="username"  /></li>
+                            <li> <label for="password">Password</label>
+                                <input type="password" size="30"  name="password" id="password"  /></li>
+                            <li> <label for="retype-password">Retype password</label>
+                                <input type="password" size="30"  name="retype-password" id="retype-password"  /></li>
+                            <li> <label for="email">Email</label>
+                                <input type="email" size="30"  name="email" id="email"  /></li>
+                            <li> <label></label>
+                                <input type="submit" id="signup" name="signup" value="Signup" class="signupbutton" ></li>
+                        </ul>
+                    </form>
+                </fieldset>
+            </div>-->
+            <!--<div class="newquestion">
+                <h1>Create a new question</h1>
+                <form action="process.php?action=newQuestion" method="post">
+                    <ul>
+                        <li>
+                            <label for="title">title </label>
+                            <input type="text" size="30"  name="title" id="title"/>
+                        </li>
+                        <li>
+                            <label for="text">Text </label>
+                            <textarea name="text" id="text" rows="10" cols="100"></textarea>
+                        </li>
+                        <li>
+                            <label for="tags">Tags </label>
+                            <input type="text" size="30" name="tags" id="tags"/>
+                        </li>
+                        <li>
+                            <input type="submit" id="submit" name="submit" value="Submit" class="submitNewThreadButton">
+                        </li>
+                    </ul>
+                </form>
+            </div>-->
 			<div class="sectionArea">
-                <!-- List all questions -->
-                <?php foreach ($questions as $q): ?>
-                    <?php
+                <?php if (count($questions) != 0): ?>
+                    <!-- List all questions -->
+                    <?php foreach ($questions as $q): ?>
+                        <?php
                         $latestAnswer = $question->getLatestComment($q['id']);
                         $upvotes = $question->getQuestionScore($q['id']);
                         $answers = count($question->getComments($q['id']));
                         $tags = $question->getQuestionTags($q['id']);
                         $views = $question->getQuestionViews($q['id']);
-                    ?>
+                        ?>
 
-                    <article class="qOverview">
+                        <article class="qOverview">
 
-                        <div class="qOverviewInfo">
-                            <div class="qOverviewInfoDates">
-                                <p>Date posted: <?= $q['post_date']; ?></p>
-                                <p>Last Answer: <?= $latestAnswer['post_date'] . " by <a href=profile.php?uid=$latestAnswer[uid]>" . $latestAnswer['username'] . "</a>"; ?></p>
+                            <div class="qOverviewInfo">
+                                <div class="qOverviewInfoDates">
+                                    <p>Date posted: <?= $q['post_date']; ?></p>
+                                    <p>Last Answer: <?= $latestAnswer['post_date'] . " by <a href=profile.php?uid=$latestAnswer[uid]>" . $latestAnswer['username'] . "</a>"; ?></p>
+                                </div>
+
+                                <div class="qOverviewInfoBoxes">
+                                    <div>
+                                        <p><?= $upvotes; ?></p>
+                                        <p>Upvotes</p>
+                                    </div>
+                                    <div>
+                                        <p><?= $answers; ?></p>
+                                        <p>Answers</p>
+                                    </div>
+                                    <div>
+                                        <p><?= $views; ?></p>
+                                        <p>Views</p>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="qOverviewInfoBoxes">
-                                <div>
-                                    <p><?= $upvotes; ?></p>
-                                    <p>Upvotes</p>
-                                </div>
-                                <div>
-                                    <p><?= $answers; ?></p>
-                                    <p>Answers</p>
-                                </div>
-                                <div>
-                                    <p><?= $views; ?></p>
-                                    <p>Views</p>
+                            <div class="qOverviewSection">
+                                <p class="qOverviewSectionName"><a href="showquestion.php?qid=<?= $q['id']; ?>"><?= $q['title']; ?></a></p>
+                                <div class="qOverviewTags">
+                                    <?php foreach ($tags as $t): ?>
+                                        <p><a href="index-test.php?tag=<?= $t['id']; ?>"><?= $t['name']; ?></a></p>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="qOverviewSection">
-                            <p class="qOverviewSectionName"><a href="showquestion.php?qid=<?= $q['id']; ?>"><?= $q['title']; ?></a></p>
-                            <div class="qOverviewTags">
-                                <?php foreach ($tags as $t): ?>
-                                    <p><a href="index.php?tag=<?= $t['name']; ?>"><?= $t['name']; ?></a></p>
-                                <?php endforeach; ?>
+                            <div class="qOverviewProfile">
+                                <p><img width="32" height="32" src="Images/Profile_pictures/<?= $q['profile_picture']; ?>"/></p>
+                                <p><a href="profile.php?uid=<?=$q['uid']; ?>"><?= $q['username']; ?></a></p>
                             </div>
-                        </div>
-
-                        <div class="qOverviewProfile">
-                            <p><img width="32" height="32" src="Images/Profile_pictures/<?= $q['profile_picture']; ?>"/></p>
-                            <p><a href="profile.php?uid=<?=$q['uid']; ?>"><?= $q['username']; ?></a></p>
-                        </div>
-                    </article>
-                <?php endforeach; ?>
+                        </article>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
 		</section>
 		

@@ -76,7 +76,6 @@ switch($action) {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $email = $_POST['email'];
-        $country = $_POST['country'];
 
         // Athuga hvort emailið sé gilt.
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -84,26 +83,25 @@ switch($action) {
         }
 
         // Bý til nýjan notanda og set hann í gagnagrunninn
-        if ($user->newUser($username, $password, $email, $country)) {
-            header("Location: Index.php");
+        if ($user->newUser($username, $password, $email)) {
+            header("Location: Index-test.php");
         }
 
         break;
 
-    /*case 'login':
+    case 'login':
         $userInfo = $user->validateUser($_POST['username'], $_POST['password']); // Athuga hvort notandi sé til, ef svo þá næ ég í upplýsingar um hann.
         $userExists = count($userInfo) != 0; // Ef stærðin á $userInfo array-inu er '1' þá er notandinn ekki til eða notandinn sló inn vitlaust username/password.
         if ($userExists) {
             $_SESSION['uid'] = $userInfo['id']; // User ID
             $_SESSION['username'] = $_POST['username'];
-            //header("Location: profile.php");
-            echo "true";
+            header("Location: Index-test.php");
         }
-        break;*/
+        break;
 
     case 'logout':
         $_SESSION = []; // Eyði öllu úr $_SESSION arrayinu
-        //header("Location: Index.php");
+        header("Location: Index-test.php");
         break;
 
     case 'updateProfilePicture':
