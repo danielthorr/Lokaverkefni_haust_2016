@@ -87,7 +87,7 @@ if (isset($_GET['tag'])) {
                     </form>
                 </fieldset>
             </div>-->
-            <div class="signupform-in">
+            <!--<div class="signupform-in">
                 <h1>User Signup</h1>
                 <div class="err" id="signup-error"></div>
                 <fieldset>
@@ -107,6 +107,28 @@ if (isset($_GET['tag'])) {
                         </ul>
                     </form>
                 </fieldset>
+            </div>-->
+            <div class="newquestion">
+                <h1>Create a new question</h1>
+                <form action="process.php?action=newQuestion" method="post">
+                    <ul>
+                        <li>
+                            <label for="title">title </label>
+                            <input type="text" size="30"  name="title" id="title"/>
+                        </li>
+                        <li>
+                            <label for="text">Text </label>
+                            <textarea name="text" id="text" rows="10" cols="100"></textarea>
+                        </li>
+                        <li>
+                            <label for="tags">Tags </label>
+                            <input type="text" size="30" name="tags" id="tags"/>
+                        </li>
+                        <li>
+                            <input type="submit" id="submit" name="submit" value="Submit" class="submitNewThreadButton">
+                        </li>
+                    </ul>
+                </form>
             </div>
 			<div class="sectionArea">
                 <!-- List all questions -->
