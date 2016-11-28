@@ -70,7 +70,7 @@ if (isset($_GET['tag'])) {
 					<li>Top: All time</li>
 				</ul>
 			</div>
-            <div class="loginform-in">
+            <!--<div class="loginform-in">
                 <h1>User Login</h1>
                 <div class="err" id="login-error"></div>
                 <fieldset>
@@ -83,6 +83,27 @@ if (isset($_GET['tag'])) {
                                 <input type="password" size="30"  name="password" id="password"  /></li>
                             <li> <label></label>
                                 <input type="submit" id="login" name="login" value="Login" class="loginbutton" ></li>
+                        </ul>
+                    </form>
+                </fieldset>
+            </div>-->
+            <div class="signupform-in">
+                <h1>User Signup</h1>
+                <div class="err" id="signup-error"></div>
+                <fieldset>
+                    <form action="process.php?action=signup" id="signupform-in" method="post">
+                        <h1 class="test"></h1>
+                        <ul>
+                            <li> <label for="username">Username </label>
+                                <input type="text" size="30"  name="username" id="username"  /></li>
+                            <li> <label for="password">Password</label>
+                                <input type="password" size="30"  name="password" id="password"  /></li>
+                            <li> <label for="retype-password">Retype password</label>
+                                <input type="password" size="30"  name="retype-password" id="retype-password"  /></li>
+                            <li> <label for="email">Email</label>
+                                <input type="email" size="30"  name="email" id="email"  /></li>
+                            <li> <label></label>
+                                <input type="submit" id="signup" name="signup" value="Signup" class="signupbutton" ></li>
                         </ul>
                     </form>
                 </fieldset>
