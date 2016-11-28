@@ -89,20 +89,19 @@ switch($action) {
 
         break;
 
-    /*case 'login':
+    case 'login':
         $userInfo = $user->validateUser($_POST['username'], $_POST['password']); // Athuga hvort notandi sé til, ef svo þá næ ég í upplýsingar um hann.
         $userExists = count($userInfo) != 0; // Ef stærðin á $userInfo array-inu er '1' þá er notandinn ekki til eða notandinn sló inn vitlaust username/password.
         if ($userExists) {
             $_SESSION['uid'] = $userInfo['id']; // User ID
             $_SESSION['username'] = $_POST['username'];
-            //header("Location: profile.php");
-            echo "true";
+            header("Location: Index-test.php");
         }
-        break;*/
+        break;
 
     case 'logout':
         $_SESSION = []; // Eyði öllu úr $_SESSION arrayinu
-        //header("Location: Index.php");
+        header("Location: Index-test.php");
         break;
 
     case 'updateProfilePicture':
