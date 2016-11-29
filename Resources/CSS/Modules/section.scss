@@ -1,0 +1,23 @@
+@import "sectionModules/indexSection.scss";
+@import "sectionModules/logInSection";
+
+
+form[name=askQuestionForm]
+{
+	width:95%;
+	margin: 20px auto;
+	
+	label[for=title]
+	{
+		font-size: 1.3em;
+		display:inline;
+	}
+	input[name=title]
+	{
+		font-size:1.3em;
+	}
+	
+	#mceu_13 {
+		margin: 0 auto;
+	}
+}
