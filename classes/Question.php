@@ -138,6 +138,21 @@ class Question
         }
 	}
 
+    public function getOriginalPostInfo($question_id)
+    {
+        $stmt = $this->connection->prepare('call GetOriginalPostInfo(?)');
+        $stmt->bindParam(1,$question_id);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return array();
+        }
+	}
+
     /**
      * @function name: getComments
      *
