@@ -163,9 +163,10 @@ class Question
 		}
 	}
 
-    public function getAllQuestions()
+    public function getAllQuestions($sort)
     {
-        $stmt = $this->connection->prepare('call GetAllQuestions');
+        $stmt = $this->connection->prepare('call GetAllQuestions(?)');
+        $stmt->bindParam(1,$sort);
 
         try {
             $stmt->execute();
