@@ -12,7 +12,7 @@ $tag = new Tag($connection);
 if (isset($_GET['tag'])) {
 	$questions = $question->getQuestionsByTag($_GET['tag']);
 } else {
-	$questions = $question->getAllQuestions();
+	$questions = $question->getAllQuestions('newest');
 }
 
 ?>
@@ -62,7 +62,7 @@ if (isset($_GET['tag'])) {
 			
 			<div class="sectionTabs">
 				<ul>
-					<li>Newest</li>
+                    <li><a href="Index-test.php">Newest</a></li>
 					<li>Top: 24hrs</li>
 					<li>Top: Week</li>
 					<li>Top: Month</li>
