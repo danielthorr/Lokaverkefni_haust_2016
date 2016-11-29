@@ -1,0 +1,28 @@
+.logIn
+{
+	position: absolute;
+	left:0;
+	right:0;
+	top:0;
+	//Use the value below to hide the box completely
+	//top: -217px;
+	width: 281px; 
+	margin: 0 auto;
+	padding:40px 50px;
+	border: 4px groove slategray;
+	background-color: $colorAccentLight;
+	
+	form
+	{
+		@include flex($direction:column);
+		label
+		{
+			padding-bottom:2px;
+		}
+		
+		input
+		{
+			margin-bottom: 10px;
+		}
+	}
+}
