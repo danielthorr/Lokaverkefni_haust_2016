@@ -70,66 +70,6 @@ if (isset($_GET['tag'])) {
 					<li>Top: All time</li>
 				</ul>
 			</div>
-            <!--<div class="loginform-in">
-                <h1>User Login</h1>
-                <div class="err" id="login-error"></div>
-                <fieldset>
-                    <form action="login_process.php" id="loginform-in" method="post">
-                        <h1 class="test"></h1>
-                        <ul>
-                            <li> <label for="name">Username </label>
-                                <input type="text" size="30"  name="username" id="username"  /></li>
-                            <li> <label for="name">Password</label>
-                                <input type="password" size="30"  name="password" id="password"  /></li>
-                            <li> <label></label>
-                                <input type="submit" id="login" name="login" value="Login" class="loginbutton" ></li>
-                        </ul>
-                    </form>
-                </fieldset>
-            </div>-->
-            <!--<div class="signupform-in">
-                <h1>User Signup</h1>
-                <div class="err" id="signup-error"></div>
-                <fieldset>
-                    <form action="process.php?action=signup" id="signupform-in" method="post">
-                        <h1 class="test"></h1>
-                        <ul>
-                            <li> <label for="username">Username </label>
-                                <input type="text" size="30"  name="username" id="username"  /></li>
-                            <li> <label for="password">Password</label>
-                                <input type="password" size="30"  name="password" id="password"  /></li>
-                            <li> <label for="retype-password">Retype password</label>
-                                <input type="password" size="30"  name="retype-password" id="retype-password"  /></li>
-                            <li> <label for="email">Email</label>
-                                <input type="email" size="30"  name="email" id="email"  /></li>
-                            <li> <label></label>
-                                <input type="submit" id="signup" name="signup" value="Signup" class="signupbutton" ></li>
-                        </ul>
-                    </form>
-                </fieldset>
-            </div>-->
-            <!--<div class="newquestion">
-                <h1>Create a new question</h1>
-                <form action="process.php?action=newQuestion" method="post">
-                    <ul>
-                        <li>
-                            <label for="title">title </label>
-                            <input type="text" size="30"  name="title" id="title"/>
-                        </li>
-                        <li>
-                            <label for="text">Text </label>
-                            <textarea name="text" id="text" rows="10" cols="100"></textarea>
-                        </li>
-                        <li>
-                            <label for="tags">Tags </label>
-                            <input type="text" size="30" name="tags" id="tags"/>
-                        </li>
-                        <li>
-                            <input type="submit" id="submit" name="submit" value="Submit" class="submitNewThreadButton">
-                        </li>
-                    </ul>
-                </form>
-            </div>-->
 			<div class="sectionArea">
                 <?php if (count($questions) != 0): ?>
                     <!-- List all questions -->
@@ -147,7 +87,9 @@ if (isset($_GET['tag'])) {
                             <div class="qOverviewInfo">
                                 <div class="qOverviewInfoDates">
                                     <p>Date posted: <?= $q['post_date']; ?></p>
-                                    <p>Last Answer: <?= $latestAnswer['post_date'] . " by <a href=profile.php?uid=$latestAnswer[uid]>" . $latestAnswer['username'] . "</a>"; ?></p>
+                                    <?php if ($latestAnswer != array()): ?>
+                                        <p>Last Answer: <?= $latestAnswer['post_date'] . " by <a href=profile.php?uid=$latestAnswer[uid]>" . $latestAnswer['username'] . "</a>"; ?></p>
+                                    <?php endif; ?>
                                 </div>
 
                                 <div class="qOverviewInfoBoxes">
