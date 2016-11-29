@@ -118,7 +118,9 @@ if (isset($_GET['tag'])) {
                             </div>
 
                             <div class="qOverviewProfile">
-                                <p><img width="32" height="32" src="Images/Profile_pictures/<?= $q['profile_picture']; ?>"/></p>
+                                <?php if ($q['profile_picture'] != ''): ?>
+                                    <p><img width="32" height="32" src="Images/Profile_pictures/<?= $q['profile_picture']; ?>"/></p>
+                                <?php endif; ?>
                                 <p><a href="profile.php?uid=<?=$q['uid']; ?>"><?= $q['username']; ?></a></p>
                             </div>
                         </article>
