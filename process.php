@@ -24,7 +24,7 @@ switch($action) {
 
     case 'newQuestion':
         $title = $_POST['title'];
-        $text = $_POST['text'];
+        $text = substr($_POST['text'],3,strlen($_POST['text'])-7);
         $tags = $_POST['tags'];
 
         $question->newQuestion($title,$text,$tags);

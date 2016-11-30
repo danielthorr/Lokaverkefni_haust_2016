@@ -47,6 +47,10 @@
 			link_assume_external_targets: true,
 			link_title: false
 		});
+
+        $('#askQuestionForm').submit(function() {
+            tinyMCE.triggerSave();
+        });
 	</script>
 </head>
 <body>
@@ -72,13 +76,16 @@
 		<section class="mainSection">
 			<!-- The mainSection tag contains everything on the main area of the webpage, things that we want to the user to focus on. Other things, such as links and navigation, additional and/or useful information should go into the sidebar tags -->
 			<div class="sectionArea">
-				<form name="askQuestionForm" action="askQuestion.html">
+				<form id="askQuestionForm" name="askQuestionForm" action="process.php?action=newQuestion" method="post">
 				
 					<label for="title">Title:</label>
 					<input name="title" type="text" />
 				
-					<textarea style="margin:0 auto;" form="askQuestionForm" id="textAreaQuestion"></textarea>
-					
+					<textarea style="margin:0 auto;" form="askQuestionForm" name="text" id="textAreaQuestion"></textarea>
+
+                    <label for="tags">Tags: </label>
+                    <input name="tags" type="text" />
+
 					<input type="submit" name="submit" value="submit" />
 				</form>
 			</div>
