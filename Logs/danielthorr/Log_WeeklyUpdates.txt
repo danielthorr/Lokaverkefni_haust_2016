@@ -5,24 +5,50 @@ Vika1:
 		* Ræddum um verkefnið: hvernig síðan er sett upp, hvernig hún virkar o.s.fr.
 		* Git notkun sett upp og búið til branch fyrir notendurna
 		
-		
-		
 	Mitt framlag:
 		* "Initialize-aði" github möppuna
 		* Bjó til git branch fyrir mig
 		* "Initialize-aði" git "branch-ið" mitt
 		* Byrjaði að gera html og css grunn fyrir vefsíðuna
-		* Uppfærði master branch með fyrstu útgáfu af html/css grunninum
 		
+Vika2:
+
+	Almennt:
+		* Ákváðum smá uppsetningar- og útlitsatriði fyrir síðuna
+		* Einnig ákváðum við hvernig síðan ætti að virka
+	
+	Mitt framlag:
+		* Kláraði fyrstu útgáfu af grunninum af index síðunni
+		* Setti upp litaþema og aðrar reglur í sass til að vinna með
+		* Byrjaði að vinna í spurningasíðu
 		
+Vika3:
+	
+	Mitt framlag:
+		* Ég var veikur flest alla vikuna, reyndi að vinna heima á meðan
+		* Bjó til "log in" element í html
+		* Fann API sem ég gat notað fyrir spurningasíðuna sem kallast TinyMCE. Það meðhöndlar "formatting" fyrir notendaviðmót
+		* Byrjaði að setja TinyMCE upp á síðunni og stilla það
+		* Kláraði að stilla TinyMCE og setti upp nokkrar css reglur fyrir stærðir
+
+Vika4: 
+
+	Mitt framlag:
+		* Ég var ennþá veikur meirihlutann af vikunni, reyndi aftur að vinna heima
+		* Kláraði að gera nothæfan grunn fyrir upplýsingasíðu, vantar bara útskýringatexta fyrir notendur og eitthvað fleira í þá áttina
+		* Setti upp CSS fyrir spurningasíðuna og lagaði smá vandamál með TinyMCE varðandi submit takka í formi
 		
 	Todo:
 		1. Byggja grunninn á html
-			- Skipuleggja html
-			- Nota css til þess að finna réttar stærðir svo það líti rétt út
+			- Ákveða hvað þarf að gera heima til þess að koma vefsíðuni í nothæft ástand
+				- Gera log in virkt
+				- Gera sign up virkt
+				- Bæta við "ask question" á heimasíðu ef notandi er skráður inn
+				- Búa til síðu til þess að sýna spurningar
+				- Tengja saman hlekki
 			
 		2. Gera responsive design
 			
 		2. Finna og ákveða litaþema með css
 		
-		3. Búa til animations og fl. með javascript
+		3. Búa til animations og fl. með javascript/css
