@@ -35,7 +35,7 @@
 			advlist_number_styles: "lower-alpha,upper-alpha,lower-roman,upper-roman",
 			//toolbar: "charmap codesample",
 			//menubar: "charmap",
-			toolbar: "undo redo | styleselect | bold, italic | alignleft, aligncenter, alignright, alignjustify | bullist, numlist | outdent, indent",
+			toolbar: "undo redo | styleselect | bold, italic | alignleft, aligncenter, alignright, alignjustify | bullist, numlist | outdent, indent | save",
 			menu: {
 				view: {title: "Edit", items: "undo, redo | searchreplace"},
 				view: {title: "Insert", items: "link, image | hr, charmap | codesample"}
@@ -45,12 +45,20 @@
 			plugin_preview_width: previewHeight,
 			link_context_toolbar: true,
 			link_assume_external_targets: true,
-			link_title: false
+			link_title: false,
+			save_onsavecallback: function() {}
 		});
-
-        $('#askQuestionForm').submit(function() {
-            tinyMCE.triggerSave();
-        });
+		
+		var saveMessage = function() 
+		{
+			if (document.readyState == "complete")
+			{
+				var messageBox = document.getElementById("saveMessage");
+				
+				messageBox.style.visibility("hidden");
+			}
+		}
+		
 	</script>
 </head>
 <body>
@@ -78,16 +86,25 @@
 			<div class="sectionArea">
 				<form id="askQuestionForm" name="askQuestionForm" action="process.php?action=newQuestion" method="post">
 				
-					<label for="title">Title:</label>
-					<input name="title" type="text" />
+					<div id="formTop">
+						<label for="title">Title:</label>
+						<input name="title" type="text" />
+					</div>
 				
-					<textarea style="margin:0 auto;" form="askQuestionForm" name="text" id="textAreaQuestion"></textarea>
+					<textarea form="askQuestionForm" name="text" id="textAreaQuestion"></textarea>
+					
+					<div id="formBottom">
+						<label for="tags">Tags: </label>
+						<input name="tags" type="text" />
 
-                    <label for="tags">Tags: </label>
-                    <input name="tags" type="text" />
-
-					<input type="submit" name="submit" value="submit" />
+						<input type="submit" name="submitbtn" value="submit" />
+					</div>
 				</form>
+				
+				<div id="saveMessage">
+					<p>Autosaved</p>
+				</div>
+				
 			</div>
 		</section>
 		
