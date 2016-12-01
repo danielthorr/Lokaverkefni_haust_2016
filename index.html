@@ -15,11 +15,50 @@
 				<li><a href="#">Categories</a></li>
 			</div>
 			<div class="last">
-				<li><a href="#">Log in</a></li>
-				<li><a href="#">Sign up</a></li>
+					<!-- if (user != logged_in)  -->
+				<li id="login"><a href="#">Log in</a></li>
+					<!-- else if (user == logged_in) -->
+				<li><a href="process.php?action=logout">Log out</a></li>
+				<li><a id="signup" href="#">Sign up</a></li>
 			</div>
 		</ul>
 	</header>
+	
+	<!-- Hidden login and sign up which will only be revealed if the user clicks on the login or sign up buttons -->
+	<section class="logIn" style="top: -217px;">
+		<form action="process.php?action=login">
+			<!-- image for the close button in the top right corner -->
+			<img style="position:absolute; top:8px; right:10px; cursor:pointer;" src="http://www.andreaformann.com/images/close.png" height="14px" width="14px" />
+			
+			<label for="username">Username:</label>
+			<input name="username" type="text" />
+			
+			<label for="password">Password:</label>
+			<input name="password" type="password" />
+			
+			<input name="submit" type="submit" value="Log in" />
+		</form>
+	</section>
+	
+	<section class="signUp" style="position:absolute;">
+		<form action="process.php?action=signup">
+			<!-- image for the close button in the top right corner -->
+			<img style="position:absolute; top:8px; right:10px; cursor:pointer;" src="http://www.andreaformann.com/images/close.png" height="14px" width="14px" />
+			
+			<label for="username">Username:</label>
+			<input name="username" type="text" />
+			
+			<label for="email">Email:</label>
+			<input name="email" type="email" />
+			
+			<label for="password">Password:</label>
+			<input name="password" type="password" />
+			
+			<input name="submit" type="submit" value="Log in" />
+		</form>
+	</section>
+	
+	
 	
 	<!-- Possible add a banner type message at the top before we show the main content -->
 	<div class="banner"><p>Some banner message or image</p></div>
@@ -98,7 +137,7 @@
 	</footer>
 
 <!-- Below this mark should be nothing but extra resources for website functionality. The user will never get to see anything displayed beneath this comment. -->
-<script type="text/javascript" src="jQuery/jquery-2.2.0.js"></script>
-<script type="text/javascript" src="jQuery/testScript.js"></script>
+<script type="text/javascript" src="Resources/javascript/jquery-2.2.0.js"></script>
+<script type="text/javascript" src="Resources/javascript/testScript.js"></script>
 </body>
 </html>
