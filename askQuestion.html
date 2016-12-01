@@ -78,15 +78,19 @@
 			<div class="sectionArea">
 				<form id="askQuestionForm" name="askQuestionForm" action="process.php?action=newQuestion" method="post">
 				
-					<label for="title">Title:</label>
-					<input name="title" type="text" />
+					<div id="formTop">
+						<label for="title">Title:</label>
+						<input name="title" type="text" />
+					</div>
 				
-					<textarea style="margin:0 auto;" form="askQuestionForm" name="text" id="textAreaQuestion"></textarea>
+					<textarea form="askQuestionForm" name="text" id="textAreaQuestion"></textarea>
+					
+					<div id="formBottom">
+						<label for="tags">Tags: </label>
+						<input name="tags" type="text" />
 
-                    <label for="tags">Tags: </label>
-                    <input name="tags" type="text" />
-
-					<input type="submit" name="submit" value="submit" />
+						<input type="submit" name="submit" value="submit" />
+					</div>
 				</form>
 			</div>
 		</section>
