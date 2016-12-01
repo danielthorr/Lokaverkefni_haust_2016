@@ -238,8 +238,8 @@ header {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  width: 281px;
+  top: -217px;
+  width: 380px;
   margin: 0 auto;
   padding: 40px 50px;
   border: 4px groove slategray;
@@ -254,6 +254,28 @@ header {
     .logIn form label {
       padding-bottom: 2px; }
     .logIn form input {
+      margin-bottom: 10px; }
+
+.signUp {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -270px;
+  width: 380px;
+  margin: 0 auto;
+  padding: 40px 50px;
+  border: 4px groove slategray;
+  background-color: #5A727C; }
+  .signUp form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    order: 0; }
+    .signUp form label {
+      padding-bottom: 2px; }
+    .signUp form input {
       margin-bottom: 10px; }
 
 form[name=askQuestionForm] {
