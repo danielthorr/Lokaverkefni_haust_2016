@@ -99,34 +99,38 @@ header {
   .mainContainer .mainSection {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: stretch;
     align-content: stretch;
     order: 0;
-    flex-grow: 3;
+    width: 75%;
     margin: 0 auto; }
-    .mainContainer .mainSection .sectionTabs {
-      border: none; }
-      .mainContainer .mainSection .sectionTabs ul {
-        border: none;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-end;
-        align-items: stretch;
-        align-content: stretch;
-        order: 0; }
-        .mainContainer .mainSection .sectionTabs ul li {
-          background-color: #C5A88D;
-          cursor: pointer;
-          border-top-left-radius: 8px;
-          border-top-right-radius: 2px;
-          padding: 2px;
-          border: 1px solid black; }
-        .mainContainer .mainSection .sectionTabs ul li.active {
-          border-bottom: none; }
+    .mainContainer .mainSection .orderTabs ul {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+      align-items: stretch;
+      align-content: stretch;
+      order: 0; }
+      .mainContainer .mainSection .orderTabs ul li {
+        background-color: #C5A88D;
+        cursor: pointer;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 2px;
+        padding: 2px;
+        border: 1px solid black; }
+      .mainContainer .mainSection .orderTabs ul li.active {
+        border-bottom: none; }
     .mainContainer .mainSection .sectionArea {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      align-content: stretch;
+      order: 0;
       background-color: #C5A88D;
-      min-height: 1100px; }
+      min-height: 100vw;
+      width: 100%; }
       .mainContainer .mainSection .sectionArea .askQuestionBtn a {
         display: flex;
         flex-flow: row nowrap;
@@ -243,7 +247,7 @@ header {
         border: 1px solid black;
         transition: border-color 0.2s linear; }
   .mainContainer .sidebar {
-    flex-grow: 1;
+    width: 25%;
     margin-left: 5px;
     background-color: #5A727C; }
 
@@ -345,6 +349,36 @@ form[name=askQuestionForm] {
     form[name=askQuestionForm] #formBottom input[name=submitbtn]:hover {
       border-color: #404040;
       transition: border-color 0.5s ease-out; }
+
+.QACard {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  order: 0;
+  width: 95%;
+  margin: 10px auto;
+  border: 1px solid black; }
+  .QACard .QAInfo {
+    width: 20%;
+    border: 1px solid black; }
+    .QACard .QAInfo p {
+      padding: 4px 2px; }
+  .QACard .QAMain {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    order: 0;
+    width: 80%;
+    margin: 4px 4px; }
+    .QACard .QAMain .QTitle {
+      font-size: 1.4em;
+      margin-bottom: 6px; }
+    .QACard .QAMain .QAText {
+      border: 1px solid black; }
 
 footer {
   width: 100%;

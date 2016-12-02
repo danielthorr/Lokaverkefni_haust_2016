@@ -8,17 +8,15 @@
 	
 	.mainSection
 	{
-		@include flex($direction:column);
-		flex-grow: 3;
+		@include flex($direction:column, $justify: space-around);
+		width:75%;
 		margin: 0 auto;
 		
-		.sectionTabs
+		.orderTabs
 		{
-			border:none;
 			
 			ul
 			{
-				border:none;
 				@include flex($justify:flex-end);
 				
 				li
@@ -40,8 +38,10 @@
 		
 		.sectionArea
 		{
+			@include flex($direction: column);
 			background-color:$colorLightest;
-			min-height:1100px;
+			min-height:100vw;
+			width:100%;
 		
 			.askQuestionBtn
 			{
@@ -152,7 +152,7 @@
 	
 	.sidebar
 	{
-		flex-grow: 1;
+		width:25%;
 		margin-left:5px;
 		background-color:$colorAccentLight;
 	}
