@@ -42,11 +42,34 @@
 		{
 			background-color:$colorLightest;
 			min-height:1100px;
+		
+			.askQuestionBtn
+			{
+				a
+				{
+					@include flex($justify:space-around, $align-items: center);
+					width:25%;
+					height:40px;
+					margin: 10px 10px 0 auto;
+					font-size: 1.25em;
+					text-decoration:none;
+					color: black;
+					background-color: complement($colorLightest);
+					border: 3px outset invert($colorLightest);
+					border-radius: 4px;
+					transition: border-color 0.2s ease-out;
+				}
+				
+				a:hover{
+					border-color: darken(invert($colorLightest), 20%);
+					transition: border-color 0.1s ease-in;
+				}
+			}
 			
 			.qOverview
 			{
 				@include flex();
-				margin: 20px 10px;
+				margin: 10px 10px;
 				background-color:$colorDark;
 				padding: 5px 9px;
 				border: 1px solid transparent;

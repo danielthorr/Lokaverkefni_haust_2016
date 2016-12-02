@@ -1,67 +1,6 @@
 @import "sectionModules/indexSection.scss";
 @import "sectionModules/logInSection";
 @import "sectionModules/signUpSection";
+@import "sectionModules/questionForm.scss";
 
 
-form[name=askQuestionForm]
-{
-	width:95%;
-	margin: 20px auto;
-	
-	#formTop
-	{
-		@include flex();
-		margin: 20px 0;
-		
-		label[for=title]
-		{
-			font-size: 1.4em;
-			line-height:1.3em;
-			padding-right:6px;
-		}
-		input[name=title]
-		{
-			font-size: 1.4em;
-			width:100%;
-		}
-	}
-	
-	#mceu_13 {
-		margin: 20px auto;
-	}
-	
-	#formBottom
-	{
-		@include flex();
-		label[for=tags]
-		{
-			font-size:1.3em;
-			line-height: calc(1.3em + 8px);
-			padding-right: 8px;
-			margin:0;
-		}
-		input[name=tags]
-		{
-			margin-top:8px;
-			height:1.3em;
-			font-size:1.3em;
-			width: 60%;
-		}
-		
-		input[name=submitbtn]
-		{
-			font-size:1.3em;
-			margin-left:auto;
-			padding: 8px 22px;
-			border: 3px outset gray;
-			border-radius: 8px;
-			transition: border-color 0.2s ease-out;
-		}
-		
-		input[name=submitbtn]:hover
-		{
-			border-color: lighten(black, 25%);
-			transition: border-color 0.5s ease-out;
-		}
-	}
-}
