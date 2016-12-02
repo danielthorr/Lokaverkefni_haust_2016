@@ -2,40 +2,36 @@
 @import "sectionModules/logInSection";
 @import "sectionModules/signUpSection";
 @import "sectionModules/questionForm.scss";
+@import "sectionModules/questionsSection.scss";
 
+.profileArea * {border: 1px solid black;}
 
-.QACard
+.profileArea
 {
 	@include flex();
-	width:95%;
-	margin: 10px auto;
-	border:1px solid black;
+	width:100%;
 	
-	.QAInfo
+	.profileInfo
 	{
-		width:20%;
-		border: 1px solid black;
+		position:relative;
 		
-		p {
-			padding:4px 2px;
+		.imageContainer
+		{
+			width:220px;
+			height:220px;
+			overflow:hidden;
+			
+			img {
+				//Need to fix the image tag to center the image
+				height:220px;
+				width:auto;
+				margin: 0 auto;
+			}
 		}
 	}
-	
-	.QAMain
+		
+	.profileMain
 	{
-		@include flex($direction:column);
-		width:80%;
-		margin: 4px 4px;
 		
-		.QTitle
-		{
-			font-size:1.4em;
-			margin-bottom:6px;
-		}
-		
-		.QAText 
-		{
-			border:1px solid black;
-		}
 	}
 }

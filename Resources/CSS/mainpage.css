@@ -284,7 +284,7 @@ header {
   position: absolute;
   left: 0;
   right: 0;
-  top: -270px;
+  top: -320px;
   width: 380px;
   margin: 0 auto;
   padding: 40px 50px;
@@ -379,6 +379,28 @@ form[name=askQuestionForm] {
       margin-bottom: 6px; }
     .QACard .QAMain .QAText {
       border: 1px solid black; }
+
+.profileArea * {
+  border: 1px solid black; }
+
+.profileArea {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  order: 0;
+  width: 100%; }
+  .profileArea .profileInfo {
+    position: relative; }
+    .profileArea .profileInfo .imageContainer {
+      width: 220px;
+      height: 220px;
+      overflow: hidden; }
+      .profileArea .profileInfo .imageContainer img {
+        height: 220px;
+        width: auto;
+        margin: 0 auto; }
 
 footer {
   width: 100%;
