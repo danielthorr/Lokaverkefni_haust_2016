@@ -54,6 +54,9 @@
 			<label for="password">Password:</label>
 			<input name="password" type="password" />
 			
+			<label for="password2">Re-type password:</label>
+			<input name="password2" type="password" />
+			
 			<input name="submit" type="submit" value="Log in" />
 		</form>
 	</section>
@@ -68,7 +71,7 @@
 		<section class="mainSection">
 			<!-- The mainSection tag contains everything on the main area of the webpage, things that we want to the user to focus on. Other things, such as links and navigation, additional and/or useful information should go into the sidebar tags -->
 			
-			<div class="sectionTabs">
+			<div class="orderTabs">
 				<ul>
 					<li class="active">Newest</li>
 					<li>Top: 24hrs</li>
@@ -80,6 +83,13 @@
 			</div>
 			
 			<div class="sectionArea">
+			
+				<!-- start php if (user == logged in) { -->
+				<div class="askQuestionBtn">
+					<a href="askQuestion.html">Ask a question</a>
+				</div>
+				<!-- } end php -->
+			
 				<article class="qOverview">
 				
 					<div class="qOverviewInfo">

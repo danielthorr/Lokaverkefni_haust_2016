@@ -8,17 +8,15 @@
 	
 	.mainSection
 	{
-		@include flex($direction:column);
-		flex-grow: 3;
+		@include flex($direction:column, $justify: space-around);
+		width:75%;
 		margin: 0 auto;
 		
-		.sectionTabs
+		.orderTabs
 		{
-			border:none;
 			
 			ul
 			{
-				border:none;
 				@include flex($justify:flex-end);
 				
 				li
@@ -40,13 +38,38 @@
 		
 		.sectionArea
 		{
+			@include flex($direction: column);
 			background-color:$colorLightest;
-			min-height:1100px;
+			min-height:100vw;
+			width:100%;
+		
+			.askQuestionBtn
+			{
+				a
+				{
+					@include flex($justify:space-around, $align-items: center);
+					width:25%;
+					height:40px;
+					margin: 10px 10px 0 auto;
+					font-size: 1.25em;
+					text-decoration:none;
+					color: black;
+					background-color: complement($colorLightest);
+					border: 3px outset invert($colorLightest);
+					border-radius: 4px;
+					transition: border-color 0.2s ease-out;
+				}
+				
+				a:hover{
+					border-color: darken(invert($colorLightest), 20%);
+					transition: border-color 0.1s ease-in;
+				}
+			}
 			
 			.qOverview
 			{
 				@include flex();
-				margin: 20px 10px;
+				margin: 10px 10px;
 				background-color:$colorDark;
 				padding: 5px 9px;
 				border: 1px solid transparent;
@@ -129,7 +152,7 @@
 	
 	.sidebar
 	{
-		flex-grow: 1;
+		width:25%;
 		margin-left:5px;
 		background-color:$colorAccentLight;
 	}
