@@ -22,7 +22,7 @@ var main = function()
 	}
 	else if (clickedOn == "signup"){
 		var $showElement = $(".signUp");
-		var topPos = "-270px";
+		var topPos = "-320px";
 	}
 	
 	if ($showElement.hasClass("activeMsgBox")) {
