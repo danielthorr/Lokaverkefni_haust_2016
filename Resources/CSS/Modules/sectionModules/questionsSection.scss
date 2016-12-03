@@ -2,13 +2,31 @@
 {
 	@include flex();
 	width:95%;
+	min-height:310px;
 	margin: 10px auto;
 	border:1px solid black;
 	
 	.QAInfo
 	{
+		@include flex($direction:column, $align-items:center);
 		width:20%;
-		border: 1px solid black;
+		border-right: 1px solid black;
+		
+		.votes
+		{
+			@include flex($direction:column, $align-items:center);
+			
+			img
+			{
+				opacity:0.65;
+				transition: opacity 0.1s;
+			}
+			img:hover
+			{
+				opacity: 1;
+				transition: opacity 0.1s;
+			}
+		}
 		
 		p {
 			padding:4px 2px;
@@ -25,11 +43,39 @@
 		{
 			font-size:1.4em;
 			margin-bottom:6px;
+			border-bottom:2px solid black;
 		}
 		
 		.QAText 
 		{
 			border:1px solid black;
+		}
+		
+		.QTags
+		{
+			margin-top:auto;
+			cursor: default;
+			padding:6px 0;
+			border-top:1px solid black;
+			
+			a
+			{
+				text-decoration:none;
+				color: lighten(lightgray, 13%);
+				font-size:0.75em;
+				padding:3px 5px;
+				background-color: $colorLight;
+				border: 1px solid $colorBase;
+				border-radius:6px;
+				margin: 0 2px;
+				transition: border-color 0.1s;
+			}
+			
+			a:hover
+			{
+				border-color: lighten($colorBase, 25%);
+				transition: border-color 0.1s;
+			}
 		}
 	}
 }

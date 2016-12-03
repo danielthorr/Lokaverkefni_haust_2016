@@ -40,7 +40,7 @@
 		{
 			@include flex($direction: column);
 			background-color:$colorLightest;
-			min-height:100vw;
+			min-height:60vw;
 			width:100%;
 		
 			.askQuestionBtn
@@ -132,6 +132,13 @@
 							border: 1px solid $colorBase;
 							border-radius:2px;
 							margin: 0 2px;
+							transition: border-color 0.1s;
+						}
+						
+						a:hover
+						{
+							border-color: lighten($colorBase, 25%);
+							transition: border-color 0.1s;
 						}
 					}
 				}

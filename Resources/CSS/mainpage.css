@@ -129,7 +129,7 @@ header {
       align-content: stretch;
       order: 0;
       background-color: #C5A88D;
-      min-height: 100vw;
+      min-height: 60vw;
       width: 100%; }
       .mainContainer .mainSection .sectionArea .askQuestionBtn a {
         display: flex;
@@ -234,7 +234,11 @@ header {
               background-color: #8B7D71;
               border: 1px solid #998E84;
               border-radius: 2px;
-              margin: 0 2px; }
+              margin: 0 2px;
+              transition: border-color 0.1s; }
+            .mainContainer .mainSection .sectionArea .qOverview .qOverviewSection .qOverviewTags a:hover {
+              border-color: #d3ceca;
+              transition: border-color 0.1s; }
         .mainContainer .mainSection .sectionArea .qOverview .qOverviewProfile {
           display: flex;
           flex-flow: column nowrap;
@@ -358,11 +362,31 @@ form[name=askQuestionForm] {
   align-content: stretch;
   order: 0;
   width: 95%;
+  min-height: 310px;
   margin: 10px auto;
   border: 1px solid black; }
   .QACard .QAInfo {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    order: 0;
     width: 20%;
-    border: 1px solid black; }
+    border-right: 1px solid black; }
+    .QACard .QAInfo .votes {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      align-content: stretch;
+      order: 0; }
+      .QACard .QAInfo .votes img {
+        opacity: 0.65;
+        transition: opacity 0.1s; }
+      .QACard .QAInfo .votes img:hover {
+        opacity: 1;
+        transition: opacity 0.1s; }
     .QACard .QAInfo p {
       padding: 4px 2px; }
   .QACard .QAMain {
@@ -376,9 +400,28 @@ form[name=askQuestionForm] {
     margin: 4px 4px; }
     .QACard .QAMain .QTitle {
       font-size: 1.4em;
-      margin-bottom: 6px; }
+      margin-bottom: 6px;
+      border-bottom: 2px solid black; }
     .QACard .QAMain .QAText {
       border: 1px solid black; }
+    .QACard .QAMain .QTags {
+      margin-top: auto;
+      cursor: default;
+      padding: 6px 0;
+      border-top: 1px solid black; }
+      .QACard .QAMain .QTags a {
+        text-decoration: none;
+        color: #f4f4f4;
+        font-size: 0.75em;
+        padding: 3px 5px;
+        background-color: #8B7D71;
+        border: 1px solid #998E84;
+        border-radius: 6px;
+        margin: 0 2px;
+        transition: border-color 0.1s; }
+      .QACard .QAMain .QTags a:hover {
+        border-color: #d3ceca;
+        transition: border-color 0.1s; }
 
 .profileArea * {
   border: 1px solid black; }
