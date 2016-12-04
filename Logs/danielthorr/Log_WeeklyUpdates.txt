@@ -38,15 +38,16 @@ Vika4:
 		* Kláraði að gera nothæfan grunn fyrir upplýsingasíðu, vantar bara útskýringatexta fyrir notendur og eitthvað fleira í þá áttina
 		* Setti upp CSS fyrir spurningasíðuna og lagaði smá vandamál með TinyMCE varðandi submit takka í formi
 		* Bætti Log in og sign up við á heimasíðu (þarf ennþá að setja það inn með php) og bjó til javascript popup virkni fyrir þessi tvö elements
-		* 
+		* Bjó til uppsetninguna fyrir síðu til að birta spurningar með "demo texta" til að sýna hvernig hún myndi líta út
+		* Bjó til profile síðu með möguleika til þess að breyta um notendaupplýsingar (þarf php til að virka sem er ekki komið inn)
 		
 	Todo:
 		1. Byggja grunninn á html
 			- Ákveða hvað þarf að gera heima til þess að koma vefsíðuni í nothæft ástand
 				#- Gera log in virkt
 				#- Gera sign up virkt
-				- Bæta við "ask question" á heimasíðu ef notandi er skráður inn
-				- Búa til síðu til þess að sýna spurningar
+				#- Bæta við "ask question" á heimasíðu ef notandi er skráður inn
+				#- Búa til síðu til þess að sýna spurningar
 				- Tengja saman hlekki
 			
 		2. Gera responsive design
