@@ -1,8 +1,21 @@
+<?php
+
+session_start();
+
+require_once 'Includes/connection.php';
+require_once 'classes/User.php';
+
+$user = new User($connection);
+
+$u = $user->getUserInfo($_GET['uid']);
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title><?= $u['username']; ?>'s profile</title>
 	<link rel="stylesheet" href="Resources/CSS/mainpage.css">
 
 </head>
@@ -27,12 +40,9 @@
 			<!-- The mainSection tag contains everything on the main area of the webpage, things that we want to the user to focus on. Other things, such as links and navigation, additional and/or useful information should go into the sidebar tags -->
 			<section class="profileArea">
 			
-	<!-- <php if ($_GET[settings] == true && $_GET[$page_user] == $_SESSION[user]) { -->
-			
-			<!-- If $_GET is used we need to make sure that the user who is logged in is the same as the owner of the profile --
-			
+	        <?php if (isset($_GET['settings']) && $_GET['settings'] == true && isset($_SESSION['uid']) && $_GET['uid'] == $_SESSION['uid']): ?>
 				<aside class="profileInfo">
-					<!-- needs to fix image tag to center the image --
+					<!-- needs to fix image tag to center the image -->
 					<div class="imageContainer">
 						<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"/>
 					</div>
@@ -40,70 +50,63 @@
 						<label for="profileImage">Change profile picture:</label>
 						<input type="file" name="profileImage" form="accountSettings" accept="image/*" />
 					</div>
-					<p class="infoText">username</p>
-					<p class="infoText">accountCreated?</p>
-					<p class="infoText">lastActive?</p>
-					<p class="infoText">moreInfo?</p>
+                    <p class="infoText">Username: <?= $u['username']; ?></p>
+                    <p class="infoText">Email: <?= $u['email']; ?></p>
+                    <p class="infoText">Member since: <?= explode(' ', $u['join_date'])[0]; ?></p>
 				</aside>
 				
 				<hr class="seperate">
 				
 				<section class="profileMain">
-					<form name="accountSettings" action="profile.php?userID=$uid">
+                    <form name="accountSettings" action="process.php?action=editUserInfo" method="post">
 						<p class="profileTextLabel">Name</p>
-						<input class="profileText edit" type="text" name="fullName" value="$fullName"/>
+						<input class="profileText edit" type="text" name="realName" value="<?= $u['realName']; ?>"/>
 						<hr>
 						<p class="profileTextLabel">Email</p>
-						<input class="profileText edit" type="email" name="email" value="$email"/>
+						<input class="profileText edit" type="email" name="email" value="<?= $u['email']; ?>"/>
 						<hr>
 						<p class="profileTextLabel">Title</p>
-						<input class="profileText edit" type="text" name="title" value="$title"/>
+						<input class="profileText edit" type="text" name="title" value="<?= $u['title']; ?>"/>
 						<hr>
 						<p class="profileTextLabel">Country</p>
-						<input class="profileText edit" type="text" name="country" value="$country"/>
+						<input class="profileText edit" type="text" name="country" value="<?= $u['country']; ?>"/>
 						<hr>
 						<p class="profileTextLabel">Description</p>
-						<textarea class="profileText edit" name="description" form="accountSettings">$description
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie eros sed leo bibendum laoreet. Ut vel diam id est aliquam euismod. Duis auctor massa sit amet eros lobortis, quis mattis quam rhoncus. Praesent rutrum ante neque, id rhoncus elit mollis eget. Phasellus at tincidunt lectus. Donec feugiat tincidunt ex ut placerat. In et velit nec libero facilisis lobortis</textarea>
+						<textarea class="profileText edit" name="description"><?= $u['description']; ?></textarea>
 						<input type="submit" name="submit" value="Save changes" />
 					</form>
-				</section> -->
-				
-				
-	<!-- } else  { 
-				
-				-->
+				</section>
+
+            <?php else: ?>
 				<aside class="profileInfo">
 					<!-- needs to fix image tag to center the image -->
 					<div class="imageContainer">
 						<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"/>
 					</div>
-					<p class="infoText">username</p>
-					<p class="infoText">email</p>
-					<p class="infoText">accountCreated?</p>
-					<p class="infoText">lastActive?</p>
-					<p class="infoText">moreInfo?</p>
+					<p class="infoText">Username: <?= $u['username']; ?></p>
+					<p class="infoText">Email: <?= $u['email']; ?></p>
+					<p class="infoText">Member since: <?= explode(' ', $u['join_date'])[0]; ?></p>
 				</aside>
 				
 				<hr class="seperate">
 				
 				<section class="profileMain">
-					<!-- <php if (isset(user) && userid == $_GET[userid]) { -->
-					<a href="profile.php?userid=$uid&settings=true">Edit settings</a><!-- We only want to show the 'Edit settings' option if the user that is logged in is the owner of this profile-->
-					<!-- } -->
+                    <?php if (isset($_SESSION['uid']) && $_SESSION['uid'] == $_GET['uid']): ?>
+					    <a href="profile.php?uid=<?= $_GET['uid']; ?>&settings=true">Edit settings</a><!-- We only want to show the 'Edit settings' option if the user that is logged in is the owner of this profile-->
+                    <?php endif; ?>
 					<p class="profileTextLabel">Name</p>
-					<p class="profileText">Daníel Þór Þórisson</p>
+					<p class="profileText"><?= $u['realName']; ?></p>
 					<hr>
 					<p class="profileTextLabel">Title</p>
-					<p class="profileText">Nemandi í Tækniskólanum</p>
+					<p class="profileText"><?= $u['title']; ?></p>
 					<hr>
 					<p class="profileTextLabel">Country</p>
-					<p class="profileText">Ísland</p>
+					<p class="profileText"><?= $u['country']; ?></p>
 					<hr>
 					<p class="profileTextLabel">Description</p>
-					<p class="profileText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie eros sed leo bibendum laoreet. Ut vel diam id est aliquam euismod. Duis auctor massa sit amet eros lobortis, quis mattis quam rhoncus. Praesent rutrum ante neque, id rhoncus elit mollis eget. Phasellus at tincidunt lectus. Donec feugiat tincidunt ex ut placerat. In et velit nec libero facilisis lobortis</p>
+					<p class="profileText"><?= $u['description']; ?></p>
 				</section>
-	<!-- } end -->
+            <?php endif; ?>
 	
 			</section>
 		</section>		
