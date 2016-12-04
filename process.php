@@ -125,6 +125,6 @@ switch($action) {
         break;
 
     case 'editUserInfo':
-        $user->updateUser($_SESSION['uid'], $_POST['realName'], $_POST['email'], $_POST['title'], $_POST['description'], $_POST['country']);
+        $user->updateUser($_SESSION['uid'], $_POST['realName'], $_POST['email'], $_POST['title'], $_POST['country'], $_POST['description']);
         break;
 }

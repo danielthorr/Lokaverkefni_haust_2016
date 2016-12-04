@@ -67,7 +67,7 @@ class Question
                     $stmt->bindParam(3, $_SESSION['uid']);
 
                     // Redirect-ar notandann á nýju spurninguna
-                    header("Location: showquestion.php?qid=" . $question_id);
+                    header("Location: question.php?qid=" . $question_id);
                     try {
                         $stmt->execute();
                     } catch(PDOException $e) {
