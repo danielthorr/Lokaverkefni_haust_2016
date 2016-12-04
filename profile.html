@@ -32,10 +32,10 @@
 			
 	<!-- <php if ($_GET[settings] == true && $_GET[$page_user] == $_SESSION[user]) { -->
 			
-			<!-- If $_GET is used we need to make sure that the user who is logged in is the same as the owner of the profile -->
+			<!-- If $_GET is used we need to make sure that the user who is logged in is the same as the owner of the profile --
 			
 				<aside class="profileInfo">
-					<!-- needs to fix image tag to center the image -->
+					<!-- needs to fix image tag to center the image --
 					<div class="imageContainer">
 						<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"/>
 					</div>
@@ -52,7 +52,7 @@
 				<hr class="seperate">
 				
 				<section class="profileMain">
-					<form name="accountSettings" action="profile.php?userID=$id">
+					<form name="accountSettings" action="profile.php?userID=$uid">
 						<p class="profileTextLabel">Name</p>
 						<input class="profileText edit" type="text" name="fullName" value="$fullName"/>
 						<hr>
@@ -70,14 +70,14 @@
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie eros sed leo bibendum laoreet. Ut vel diam id est aliquam euismod. Duis auctor massa sit amet eros lobortis, quis mattis quam rhoncus. Praesent rutrum ante neque, id rhoncus elit mollis eget. Phasellus at tincidunt lectus. Donec feugiat tincidunt ex ut placerat. In et velit nec libero facilisis lobortis</textarea>
 						<input type="submit" name="submit" value="Save changes" />
 					</form>
-				</section>
+				</section> -->
 				
 				
 	<!-- } else  { 
 				
-				
+				-->
 				<aside class="profileInfo">
-					<!-- needs to fix image tag to center the image 
+					<!-- needs to fix image tag to center the image -->
 					<div class="imageContainer">
 						<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"/>
 					</div>
@@ -91,6 +91,9 @@
 				<hr class="seperate">
 				
 				<section class="profileMain">
+					<!-- <php if (isset(user) && userid == $_GET[userid]) { -->
+					<a href="profile.php?userid=$uid&settings=true">Edit settings</a><!-- We only want to show the 'Edit settings' option if the user that is logged in is the owner of this profile-->
+					<!-- } -->
 					<p class="profileTextLabel">Name</p>
 					<p class="profileText">Daníel Þór Þórisson</p>
 					<hr>
