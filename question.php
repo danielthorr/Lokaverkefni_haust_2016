@@ -2,13 +2,25 @@
 
 session_start();
 
+require_once 'Includes/connection.php';
+require_once 'classes/Question.php';
+require_once 'classes/User.php';
+
+$question = new Question($connection);
+$user = new User($connection);
+
+// Næ í upplýsingar um spurninguna
+$q = $question->getOriginalPostInfo($_GET['qid']);
+$score = $question->getQuestionScore($_GET['qid']);
+$postCount = $user->getUserPostCount($q['uid']);
+$tags = $question->getQuestionTags($_GET['qid']);
 ?>
 
 <!DOCTYPE HTML>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title><?= $q['title']; ?></title>
 	<link rel="stylesheet" href="Resources/CSS/mainpage.css">
 
 </head>
@@ -39,23 +51,32 @@ session_start();
 					<section class="QAInfo">
 						<div class="votes">
 							<img src="Resources/icons/upvote.png" width="40px" height="auto" />
-							<p>numberOfUpvotes</p>
+							<p><?= $score; ?></p>
 							<img src="Resources/icons/downvote.png" width="40px" height="auto" />
 						</div>
-                        <p>user rank</p>
-                        <p>post count</p>
-						<p>dateAdded</p>
-						<p>dateModified</p>
-						<p>username</p>
-						<p>join date</p>
+                        <!-- User rank -->
+                        <p><?= $q['rank']; ?></p>
+
+                        <!-- Post count -->
+                        <p><?= $postCount; ?> posts</p>
+
+                        <!-- Post date -->
+						<p><?= $q['post_date']; ?></p>
+
+                        <!-- Edited date -->
+						<?php if ($q['edited_date'] != null): ?>
+                            <p><?= $q['edited_date']; ?></p>
+                        <?php endif; ?>
+
+						<p><a href="profile.php?uid=<?= $q['uid']; ?>"><?= $q['username']; ?></a></p>
 					</section>
 					<section class="QAMain">
-						<p class="QTitle">This is the title</p>
-						<p class="QAText">This is the main text area. </p>
+						<p class="QTitle"><?= $q['title']; ?></p>
+						<p class="QAText"><?= $q['text']; ?></p>
 						<div class="QTags">
-							<a href="#">Tag1</a>
-							<a href="#">Tag2</a>
-							<a href="#">Tag3</a>
+                            <?php foreach($tags as $t): ?>
+                                <a href="index.php?tag=<?=$t['id']; ?>"><?= $t['name']; ?></a>
+                            <?php endforeach; ?>
 						</div>
 					</section>
 				</section>
@@ -72,7 +93,6 @@ session_start();
                         <p>dateAdded</p>
                         <p>dateModified</p>
                         <p>username</p>
-                        <p>join date</p>
                     </section>
                     <section class="QAMain">
                         <p class="QAText">Dæmi um comment</p>
