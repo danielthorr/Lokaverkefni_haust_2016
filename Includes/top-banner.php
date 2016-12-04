@@ -1,0 +1,1 @@
+<div class="banner"><p>Some banner message or image</p></div>

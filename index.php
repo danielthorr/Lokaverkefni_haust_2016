@@ -28,63 +28,17 @@ if (isset($_GET['tag'])) {
 <body>
 	<header>
 		<!-- Create a menu system inside these header tags -->
-		<ul class="menubar">
-			<div class="first">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="#">Categories</a></li>
-			</div>
-			<div class="last">
-                <?php if (!isset($_SESSION['uid'])): ?>
-				    <li id="login"><a href="#">Log in</a></li>
-                    <li><a id="signup" href="#">Sign up</a></li>
-                <?php else: ?>
-                    <li><a href="process.php?action=logout">Log out</a></li>
-                <?php endif; ?>
-			</div>
-		</ul>
+		<?php include 'Includes/header-menu.php'; ?>
 	</header>
 	
 	<!-- Hidden login and sign up which will only be revealed if the user clicks on the login or sign up buttons -->
-	<section class="logIn" style="top: -217px;">
-		<form action="process.php?action=login" method="post">
-			<!-- image for the close button in the top right corner -->
-			<img style="position:absolute; top:8px; right:10px; cursor:pointer;" src="Resources/icons/close.png" height="14px" width="14px" />
-			
-			<label for="username">Username:</label>
-			<input name="username" type="text" />
-			
-			<label for="password">Password:</label>
-			<input name="password" type="password" />
-			
-			<input name="submit" type="submit" value="Log in" />
-		</form>
-	</section>
-	
-	<section class="signUp" style="position:absolute;">
-		<form action="process.php?action=signup" method="post">
-			<!-- image for the close button in the top right corner -->
-			<img style="position:absolute; top:8px; right:10px; cursor:pointer;" src="Resources/icons/close.png" height="14px" width="14px" />
-			
-			<label for="username">Username:</label>
-			<input name="username" type="text" />
-			
-			<label for="email">Email:</label>
-			<input name="email" type="email" />
-			
-			<label for="password">Password:</label>
-			<input name="password" type="password" />
-			
-			<label for="password2">Re-type password:</label>
-			<input name="password2" type="password" />
-			
-			<input name="submit" type="submit" value="Log in" />
-		</form>
-	</section>
-	
-	
+    <?php if (!isset($_SESSION['uid'])) {
+        include 'Includes/login-form.php';
+        include 'Includes/signup-form.php';
+    }?>
 	
 	<!-- Possible add a banner type message at the top before we show the main content -->
-	<div class="banner"><p>Some banner message or image</p></div>
+    <?php include 'Includes/top-banner.php'; ?>
 
 	<!-- Almost everything on the page should go into the mainContainer, except pop-ups, menus, footers, etc. This tag should contain the main content on the page 	-->
 	<main class="mainContainer">
@@ -106,7 +60,7 @@ if (isset($_GET['tag'])) {
 			
 				<?php if (isset($_SESSION['uid'])): ?>
                     <div class="askQuestionBtn">
-                        <a href="askQuestion.html">Ask a question</a>
+                        <a href="askQuestion.php">Ask a question</a>
                     </div>
                 <?php endif; ?>
 

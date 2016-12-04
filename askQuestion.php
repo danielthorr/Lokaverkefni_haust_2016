@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -53,20 +59,17 @@
 <body>
 	<header>
 		<!-- Create a menu system inside these header tags -->
-		<ul class="menubar">
-			<div class="first">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="#">Categories</a></li>
-			</div>
-			<div class="last">
-				<li><a href="#">Log in</a></li>
-				<li><a href="#">Sign up</a></li>
-			</div>
-		</ul>
+		<?php include 'Includes/header-menu.php'; ?>
 	</header>
+
+    <!-- Hidden login and sign up which will only be revealed if the user clicks on the login or sign up buttons -->
+    <?php if (!isset($_SESSION['uid'])) {
+        include 'Includes/login-form.php';
+        include 'Includes/signup-form.php';
+    }?>
 	
 	<!-- Possible add a banner type message at the top before we show the main content -->
-	<div class="banner"><p>Some banner message or image</p></div>
+    <?php include 'Includes/top-banner.php'; ?>
 
 	<!-- Almost everything on the page should go into the mainContainer, except pop-ups, menus, footers, etc. This tag should contain the main content on the page 	-->
 	<main class="mainContainer">
