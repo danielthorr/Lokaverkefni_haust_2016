@@ -115,13 +115,43 @@ class User
 		}
 	}
 
-	public function updateProfilePicture($destination) {
+	public function updateProfilePicture($destination)
+    {
         $image = new Image($destination,$this->connection);
 
         try {
             $image->upload();
         } catch (PDOException $e) {
             echo $e->getMessage();
+        }
+    }
+
+    public function getUserPostCount($uid)
+    {
+        $stmt = $this->connection->prepare('call GetUserQuestionCount(?)');
+        $stmt->bindParam(1,$uid);
+
+        try {
+            $stmt->execute();
+            $qCount =  $stmt->fetch(PDO::FETCH_ASSOC)['amount'];
+
+            $stmt = $this->connection->prepare('call GetUserCommentCount(?)');
+            $stmt->bindParam(1,$uid);
+
+            try {
+                $stmt->execute();
+                $cCount =  $stmt->fetch(PDO::FETCH_ASSOC)['amount'];
+
+                return $qCount + $cCount;
+
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+                return array();
+            }
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return array();
         }
     }
 }
