@@ -84,7 +84,7 @@ switch($action) {
 
         // Bý til nýjan notanda og set hann í gagnagrunninn
         if ($user->newUser($username, $password, $email)) {
-            header("Location: Index-test.php");
+            header("Location: Index.php");
         }
 
         break;
@@ -125,6 +125,6 @@ switch($action) {
         break;
 
     case 'editUserInfo':
-    $user->updateUser($_SESSION['uid'], $_POST['username'], $_POST['password'], $_POST['email'], $_POST['title'], $_POST['description'], $_POST['country']);
+        $user->updateUser($_SESSION['uid'], $_POST['realName'], $_POST['email'], $_POST['title'], $_POST['country'], $_POST['description']);
         break;
 }
