@@ -423,6 +423,9 @@ form[name=askQuestionForm] {
         border-color: #d3ceca;
         transition: border-color 0.1s; }
 
+form[name=commentForm] {
+  margin: 0 auto 14px auto; }
+
 .profileArea {
   display: flex;
   flex-flow: row nowrap;

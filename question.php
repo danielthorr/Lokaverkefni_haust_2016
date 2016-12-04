@@ -28,6 +28,53 @@ $comments = $question->getComments($_GET['qid']);
 	<title><?= $q['title']; ?></title>
 	<link rel="stylesheet" href="Resources/CSS/mainpage.css">
 
+	<script type="text/javascript" src="Resources/javascript/TinyMCE/tinymce.min.js"></script>
+	<script type="text/javascript">
+		
+		var viewWidth = Math.max(document.documentElement.clientWidth, window.innerWidth);
+		var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+		
+		var containerWidth = (viewWidth * 0.75) * 0.75;
+		
+		var tinymceHeight = 240;
+		
+		if (viewHeight < 900){
+			tinymceHeight = viewHeight * 0.4;
+			var tinymceWidth = containerWidth;
+		}
+		else{
+			tinymceHeight = 140;
+			var tinymceWidth = containerWidth * 0.95;
+		}
+		
+		var previewWidth = containerWidth - 100; //Might have to change the last value to something else according to how the questions will appear 
+		var previewHeight = viewHeight - 88 - 200; //we subtract 88 because of the way tinymce calculates the space and we subtract an additional 200 so we don't completely fill up the screen
+	
+	
+		tinymce.init({
+			selector: '#textAreaComment',
+			body_class: 'elm1=my_class',
+			height : tinymceHeight,
+			width : tinymceWidth,
+			plugins: ["advlist lists autolink autosave charmap codesample hr image imagetools preview link searchreplace wordcount"],
+			advlist_number_styles: "lower-alpha,upper-alpha,lower-roman,upper-roman",
+			//toolbar: "charmap codesample",
+			//menubar: "charmap",
+			toolbar: "undo redo | styleselect | bold, italic | alignleft, aligncenter, alignright, alignjustify | bullist, numlist | outdent, indent",
+			menu: {
+				view: {title: "Edit", items: "undo, redo | searchreplace"},
+				view: {title: "Insert", items: "link, image | hr, charmap | codesample"}
+			},
+			image_advtab: true, //See this page for more image tools options with php and javascript https://www.tinymce.com/docs/plugins/imagetools/
+			plugin_preview_height: previewWidth,
+			plugin_preview_width: previewHeight,
+			link_context_toolbar: true,
+			link_assume_external_targets: true,
+			link_title: false
+		});
+		
+	</script>
+
 </head>
 <body>
 	<header>
@@ -121,6 +168,13 @@ $comments = $question->getComments($_GET['qid']);
                         </section>
                     </section>
                 <?php endforeach; ?>
+				
+				<!-- if isset($_SESSION[user]) -->
+				<form name="commentForm" action="process.php?" method="post">
+					<label for="comment">Write a comment:</label>
+					<textarea form="commentForm" name="comment" id="textAreaComment"></textarea>
+					<input type="submit" name="submit" value="submit comment" />
+				</form>
 				
 			</div>
 		</section>
