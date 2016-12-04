@@ -4,9 +4,11 @@ session_start();
 
 require_once 'Includes/connection.php';
 require_once 'classes/Question.php';
+require_once 'classes/Comment.php';
 require_once 'classes/User.php';
 
 $question = new Question($connection);
+$comment = new Comment($connection);
 $user = new User($connection);
 
 // Næ í upplýsingar um spurninguna
@@ -14,6 +16,9 @@ $q = $question->getOriginalPostInfo($_GET['qid']);
 $score = $question->getQuestionScore($_GET['qid']);
 $postCount = $user->getUserPostCount($q['uid']);
 $tags = $question->getQuestionTags($_GET['qid']);
+
+// Næ í öll commentin í spurningunni
+$comments = $question->getComments($_GET['qid']);
 ?>
 
 <!DOCTYPE HTML>
@@ -81,23 +86,41 @@ $tags = $question->getQuestionTags($_GET['qid']);
 					</section>
 				</section>
 
-                <section class="QACard">
-                    <section class="QAInfo">
-						<div class="votes">
-							<img src="Resources/icons/upvote.png" width="40px" height="auto" />
-							<p>numberOfUpvotes</p>
-							<img src="Resources/icons/downvote.png" width="40px" height="auto" />
-						</div>
-                        <p>user rank</p>
-                        <p>post count</p>
-                        <p>dateAdded</p>
-                        <p>dateModified</p>
-                        <p>username</p>
+                <?php foreach($comments as $c): ?>
+                    <?php
+                        $score = $comment->getCommentScore($c['id']);
+                        $postCount = $user->getUserPostCount($c['uid']);
+                    ?>
+                    <section class="QACard">
+                        <section class="QAInfo">
+                            <div class="votes">
+                                <img src="Resources/icons/upvote.png" width="40px" height="auto" />
+                                <p><?= $score; ?></p>
+                                <img src="Resources/icons/downvote.png" width="40px" height="auto" />
+                            </div>
+                            <!-- User rank -->
+                            <p><?= $c['rank']; ?></p>
+
+                            <!-- Post count -->
+                            <p><?= $postCount; ?> posts</p>
+
+                            <!-- Post date-->
+                            <p><?= $c['post_date']; ?></p>
+
+                            <!-- Edited date -->
+                            <?php if ($c['edited_date'] != null): ?>
+                                <p>dateModified</p>
+                            <?php endif; ?>
+
+                            <!-- Username -->
+                            <p><a href="profile.php?uid=<?=$c['uid']; ?>"><?= $c['username']; ?></a></p>
+                        </section>
+                        <section class="QAMain">
+                            <!-- Comment -->
+                            <p class="QAText"><?= $c['text']; ?></p>
+                        </section>
                     </section>
-                    <section class="QAMain">
-                        <p class="QAText">Dæmi um comment</p>
-                    </section>
-                </section>
+                <?php endforeach; ?>
 				
 			</div>
 		</section>
