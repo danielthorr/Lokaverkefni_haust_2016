@@ -129,7 +129,7 @@ header {
       align-content: stretch;
       order: 0;
       background-color: #C5A88D;
-      min-height: 100vw;
+      min-height: 70vh;
       width: 100%; }
       .mainContainer .mainSection .sectionArea .askQuestionBtn a {
         display: flex;
@@ -234,7 +234,11 @@ header {
               background-color: #8B7D71;
               border: 1px solid #998E84;
               border-radius: 2px;
-              margin: 0 2px; }
+              margin: 0 2px;
+              transition: border-color 0.1s; }
+            .mainContainer .mainSection .sectionArea .qOverview .qOverviewSection .qOverviewTags a:hover {
+              border-color: #d3ceca;
+              transition: border-color 0.1s; }
         .mainContainer .mainSection .sectionArea .qOverview .qOverviewProfile {
           display: flex;
           flex-flow: column nowrap;
@@ -358,11 +362,31 @@ form[name=askQuestionForm] {
   align-content: stretch;
   order: 0;
   width: 95%;
+  min-height: 310px;
   margin: 10px auto;
   border: 1px solid black; }
   .QACard .QAInfo {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    order: 0;
     width: 20%;
-    border: 1px solid black; }
+    border-right: 1px solid black; }
+    .QACard .QAInfo .votes {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      align-content: stretch;
+      order: 0; }
+      .QACard .QAInfo .votes img {
+        opacity: 0.65;
+        transition: opacity 0.1s; }
+      .QACard .QAInfo .votes img:hover {
+        opacity: 1;
+        transition: opacity 0.1s; }
     .QACard .QAInfo p {
       padding: 4px 2px; }
   .QACard .QAMain {
@@ -376,12 +400,28 @@ form[name=askQuestionForm] {
     margin: 4px 4px; }
     .QACard .QAMain .QTitle {
       font-size: 1.4em;
-      margin-bottom: 6px; }
+      margin-bottom: 6px;
+      border-bottom: 2px solid black; }
     .QACard .QAMain .QAText {
       border: 1px solid black; }
-
-.profileArea * {
-  border: 1px solid black; }
+    .QACard .QAMain .QTags {
+      margin-top: auto;
+      cursor: default;
+      padding: 6px 0;
+      border-top: 1px solid black; }
+      .QACard .QAMain .QTags a {
+        text-decoration: none;
+        color: #f4f4f4;
+        font-size: 0.75em;
+        padding: 3px 5px;
+        background-color: #8B7D71;
+        border: 1px solid #998E84;
+        border-radius: 6px;
+        margin: 0 2px;
+        transition: border-color 0.1s; }
+      .QACard .QAMain .QTags a:hover {
+        border-color: #d3ceca;
+        transition: border-color 0.1s; }
 
 .profileArea {
   display: flex;
@@ -390,17 +430,78 @@ form[name=askQuestionForm] {
   align-items: stretch;
   align-content: stretch;
   order: 0;
-  width: 100%; }
+  width: 100%;
+  min-height: 60vh;
+  border: 1px solid black;
+  background-color: #C5A88D; }
+  .profileArea hr {
+    border-color: black; }
   .profileArea .profileInfo {
-    position: relative; }
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    order: 0;
+    width: 30%;
+    padding-top: 20px; }
     .profileArea .profileInfo .imageContainer {
-      width: 220px;
-      height: 220px;
-      overflow: hidden; }
+      max-width: 20.15vw;
+      max-height: 20.15vw;
+      overflow: hidden;
+      border: 1px solid black; }
       .profileArea .profileInfo .imageContainer img {
-        height: 220px;
-        width: auto;
-        margin: 0 auto; }
+        max-height: 100%;
+        max-width: auto; }
+    .profileArea .profileInfo .uploadImg {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      align-content: stretch;
+      order: 0;
+      margin: 4px auto 12px auto; }
+      .profileArea .profileInfo .uploadImg label {
+        margin: 2px auto 2px 0; }
+      .profileArea .profileInfo .uploadImg input[name=profileImage] {
+        margin: 2px auto 2px 0; }
+      .profileArea .profileInfo .uploadImg input[name=submit] {
+        margin: 2px 0 2px auto; }
+  .profileArea .profileMain {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    order: 0;
+    width: 70%;
+    padding-top: 40px; }
+    .profileArea .profileMain a {
+      margin-left: auto;
+      margin-right: 7%; }
+    .profileArea .profileMain hr {
+      width: 86%;
+      margin: 12px auto; }
+    .profileArea .profileMain .profileTextLabel {
+      margin: 6px 20px;
+      font-size: 1.25em;
+      text-decoration: underline; }
+    .profileArea .profileMain .profileText {
+      margin: 0 64px;
+      font-size: 1.3em; }
+    .profileArea .profileMain .profileText:last-child {
+      margin: 0 12px;
+      font-size: 1.1em; }
+    .profileArea .profileMain .profileText.edit {
+      width: 80%; }
+    .profileArea .profileMain textarea.profileText.edit {
+      width: 94%;
+      height: 14vh;
+      margin: 0 12px;
+      font-size: 1.1em; }
+    .profileArea .profileMain input[name=submit] {
+      margin: 8px 0 12px 12px;
+      font-size: 1.05em; }
 
 footer {
   width: 100%;

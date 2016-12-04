@@ -35,7 +35,7 @@
 			advlist_number_styles: "lower-alpha,upper-alpha,lower-roman,upper-roman",
 			//toolbar: "charmap codesample",
 			//menubar: "charmap",
-			toolbar: "undo redo | styleselect | bold, italic | alignleft, aligncenter, alignright, alignjustify | bullist, numlist | outdent, indent | save",
+			toolbar: "undo redo | styleselect | bold, italic | alignleft, aligncenter, alignright, alignjustify | bullist, numlist | outdent, indent",
 			menu: {
 				view: {title: "Edit", items: "undo, redo | searchreplace"},
 				view: {title: "Insert", items: "link, image | hr, charmap | codesample"}
@@ -45,19 +45,8 @@
 			plugin_preview_width: previewHeight,
 			link_context_toolbar: true,
 			link_assume_external_targets: true,
-			link_title: false,
-			save_onsavecallback: function() {}
+			link_title: false
 		});
-		
-		var saveMessage = function() 
-		{
-			if (document.readyState == "complete")
-			{
-				var messageBox = document.getElementById("saveMessage");
-				
-				messageBox.style.visibility("hidden");
-			}
-		}
 		
 	</script>
 </head>
@@ -81,7 +70,7 @@
 
 	<!-- Almost everything on the page should go into the mainContainer, except pop-ups, menus, footers, etc. This tag should contain the main content on the page 	-->
 	<main class="mainContainer">
-		<section class="mainSection">
+		<section class="mainSection" style="width:100%">
 			<!-- The mainSection tag contains everything on the main area of the webpage, things that we want to the user to focus on. Other things, such as links and navigation, additional and/or useful information should go into the sidebar tags -->
 			<div class="sectionArea">
 				<form id="askQuestionForm" name="askQuestionForm" action="process.php?action=newQuestion" method="post">
@@ -100,10 +89,6 @@
 						<input type="submit" name="submitbtn" value="submit" />
 					</div>
 				</form>
-				
-				<div id="saveMessage">
-					<p>Autosaved</p>
-				</div>
 				
 			</div>
 		</section>

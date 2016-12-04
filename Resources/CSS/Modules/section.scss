@@ -3,35 +3,4 @@
 @import "sectionModules/signUpSection";
 @import "sectionModules/questionForm.scss";
 @import "sectionModules/questionsSection.scss";
-
-.profileArea * {border: 1px solid black;}
-
-.profileArea
-{
-	@include flex();
-	width:100%;
-	
-	.profileInfo
-	{
-		position:relative;
-		
-		.imageContainer
-		{
-			width:220px;
-			height:220px;
-			overflow:hidden;
-			
-			img {
-				//Need to fix the image tag to center the image
-				height:220px;
-				width:auto;
-				margin: 0 auto;
-			}
-		}
-	}
-		
-	.profileMain
-	{
-		
-	}
-}
+@import "sectionModules/profileSection.scss";
