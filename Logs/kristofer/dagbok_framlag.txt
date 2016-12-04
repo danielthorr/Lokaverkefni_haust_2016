@@ -1,0 +1,67 @@
+Vika 1 (14.11.2016 - 20.11.2016):
+	15.11.2016:
+		-Ræðum um hvernig síðan á að vera sett upp (hönnun) og hvernig ákveðnir hlutir eiga að virka á síðunni.
+		-Byrja að hanna gagnagrunninn
+		
+	17.11.2016:
+		-Klára gagnagrunninn og set hann upp á mínu tsuts svæði.
+		-Byrja á php klösunum User.php og Question.php
+	
+	18.11.2016:
+		-Bý til aðferðir til að:
+			-Búa til nýja spurningu (Question.php)
+			-Sækja allar spurningar (Question.php)
+			-Sækja allar spurningar eftir ákveðnum tögum (tags) (Question.php)
+			
+	19.11.2016:
+		-Bý til Image klasa til að upload-a myndum á serverinn og í gagnagrunninn
+		-Bý til aðferðir til að uppfæra profile mynd notanda
+		
+	20.11.2016:
+		-Klára/Laga aðferðirnar til að búa til nýja spurningu (Question.php & process.php)
+
+Vika 2 (21.11.2016 - 27.11.2016):
+	21.11.2016:
+		-Bý til aðferðir til að:
+			-Búa til comment/subcomment og vote-a á comment/subcomment
+			-Vote-a á spurningu
+			-Sækja spurningar eftir ákveðnu tagi/tögum. T.d. Notandi skrifar "php,javascript,python" og aðferðin skilar öllum spurningum sem hafa php/javascript/python í tögunum sínum
+			-Ná í upplýsingar um notandann
+			
+	22.11.2016:
+		-Bý til afrit af index.html og set php kóða í hana til að prófa kóðann og birta allar spurningar í gagnagrunninum.
+		-Bý til aðferðir til að ná í upplýsingar um spurningar eins og t.d. fjöldi svara, fjöldi áhorfa, fjöldi upvote-a o.fl.
+		-Bý til 2 ajax skrár, login.js (óklárað) og logout.js (óklárað) til að leyfa notendum að skrá sig inn og skrá sig út án þess að þurfa að refresh-a síðunni.
+		
+	23.11.2016:
+		-Held áfram að reyna að vinna með ajax.
+		-Laga aðferð til að validate-a notanda sem reynir að skrá sig inn
+	
+	24.11.2016:
+		-Laga aðferð til að leyfa notanda að búa til nýjan aðgang
+		-Laga login aðferð og sql procedure til að leyfa notanda að skrá sig inn
+	
+Vika 3 (28.11.2016 - 4.12.2016):
+	28.11.2016:
+		-Laga sql procedure til að leyfa notanda að sía spurningar eftir tögum (tags), t.d. bara sýna spurningar með "javascript" taginu
+	
+	29.11.2016:
+		-Uppfæri upplýsingar um spurningu:
+			-Sýni bara "last answer" ef það eru einhver svör við spurningunni
+			-Reyni bara að birta profile mynd notandans ef hann er búinn að setja einhverja profile mynd
+			
+	30.11.2016:
+		-Bæti við input text boxi til að skilgreina tögin fyrir spurninguna
+	
+	3.12.2016:
+		-Bæti við upplýsingum til að birta um notanda í spurningu, t.d. join date o.fl.
+	
+	4.12.2016:
+		-Set header menu, login/signup form og top bannerinn í sér php file og nota include til að sejta þau í kóðann
+		-Bý til aðferð til að fá fjölda spurninga og commenta frá notandanum
+		-Bæti við php kóða til að sýna upplýsingar um notandann t.d. post count, upvotes/downvotes o.fl.
+		-Bý til aðferð til að fá comment score (upvote/downvote)
+		-Klára php kóðann til að birta öll comment við spurningu
+		-Set php kóða í profile.php til að birta upplýsingar um ákveðinn notanda
+		-Byrja á kóðanum til að breyta upplýsingum um notanda, næstum klárað.
+		-Laga kóðann til að geta skrifað comment við spurningu
