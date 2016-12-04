@@ -74,4 +74,17 @@ class Comment
             echo $e->getMessage();
         }
     }
+
+    public function getCommentScore($comment_id)
+    {
+        $stmt = $this->connection->prepare('call GetCommentScore(?)');
+        $stmt->bindParam(1,$comment_id);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC)['score'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
