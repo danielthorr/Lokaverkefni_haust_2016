@@ -84,7 +84,7 @@ switch($action) {
 
         // Bý til nýjan notanda og set hann í gagnagrunninn
         if ($user->newUser($username, $password, $email)) {
-            header("Location: Index-test.php");
+            header("Location: Index.php");
         }
 
         break;

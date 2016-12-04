@@ -7,7 +7,7 @@ $(document).ready(function() {
             data: "action=logout",
             success: function(html) {
                 if (html == 'true') {
-                    window.location = "index-test.php";
+                    window.location = "index.php";
                 }
             }
         });
