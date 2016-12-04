@@ -129,7 +129,7 @@ header {
       align-content: stretch;
       order: 0;
       background-color: #C5A88D;
-      min-height: 60vw;
+      min-height: 70vh;
       width: 100%; }
       .mainContainer .mainSection .sectionArea .askQuestionBtn a {
         display: flex;
@@ -423,9 +423,6 @@ form[name=askQuestionForm] {
         border-color: #d3ceca;
         transition: border-color 0.1s; }
 
-.profileArea * {
-  border: 1px solid black; }
-
 .profileArea {
   display: flex;
   flex-flow: row nowrap;
@@ -433,17 +430,75 @@ form[name=askQuestionForm] {
   align-items: stretch;
   align-content: stretch;
   order: 0;
-  width: 100%; }
+  width: 100%;
+  min-height: 60vh;
+  border: 1px solid black;
+  background-color: #C5A88D; }
+  .profileArea hr {
+    border-color: black; }
   .profileArea .profileInfo {
-    position: relative; }
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    order: 0;
+    width: 30%;
+    padding-top: 20px; }
     .profileArea .profileInfo .imageContainer {
-      width: 220px;
-      height: 220px;
-      overflow: hidden; }
+      max-width: 20.15vw;
+      max-height: 20.15vw;
+      overflow: hidden;
+      border: 1px solid black; }
       .profileArea .profileInfo .imageContainer img {
-        height: 220px;
-        width: auto;
-        margin: 0 auto; }
+        max-height: 100%;
+        max-width: auto; }
+    .profileArea .profileInfo .uploadImg {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      align-content: stretch;
+      order: 0;
+      margin: 4px auto 12px auto; }
+      .profileArea .profileInfo .uploadImg label {
+        margin: 2px auto 2px 0; }
+      .profileArea .profileInfo .uploadImg input[name=profileImage] {
+        margin: 2px auto 2px 0; }
+      .profileArea .profileInfo .uploadImg input[name=submit] {
+        margin: 2px 0 2px auto; }
+  .profileArea .profileMain {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    order: 0;
+    width: 70%;
+    padding-top: 40px; }
+    .profileArea .profileMain .profileTextLabel {
+      margin: 6px 20px;
+      font-size: 1.25em;
+      text-decoration: underline; }
+    .profileArea .profileMain .profileText {
+      margin: 0 64px;
+      font-size: 1.3em; }
+    .profileArea .profileMain .profileText:last-child {
+      margin: 0 12px;
+      font-size: 1.1em; }
+    .profileArea .profileMain hr {
+      width: 86%;
+      margin: 12px auto; }
+    .profileArea .profileMain .profileText.edit {
+      width: 80%; }
+    .profileArea .profileMain textarea.profileText.edit {
+      width: 94%;
+      height: 14vh;
+      margin: 0 12px;
+      font-size: 1.1em; }
+    .profileArea .profileMain input[name=submit] {
+      margin: 8px 0 12px 12px;
+      font-size: 1.05em; }
 
 footer {
   width: 100%;
