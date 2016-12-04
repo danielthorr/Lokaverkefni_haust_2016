@@ -40,18 +40,9 @@ Vika4:
 		* Bætti Log in og sign up við á heimasíðu (þarf ennþá að setja það inn með php) og bjó til javascript popup virkni fyrir þessi tvö elements
 		* Bjó til uppsetninguna fyrir síðu til að birta spurningar með "demo texta" til að sýna hvernig hún myndi líta út
 		* Bjó til profile síðu með möguleika til þess að breyta um notendaupplýsingar (þarf php til að virka sem er ekki komið inn)
-		
-	Todo:
-		1. Byggja grunninn á html
-			- Ákveða hvað þarf að gera heima til þess að koma vefsíðuni í nothæft ástand
-				#- Gera log in virkt
-				#- Gera sign up virkt
-				#- Bæta við "ask question" á heimasíðu ef notandi er skráður inn
-				#- Búa til síðu til þess að sýna spurningar
-				- Tengja saman hlekki
-			
-		2. Gera responsive design
-			
-		2. Finna og ákveða litaþema með css
-		
-		3. Búa til animations og fl. með javascript/css
+		* Bætti við comment section á question.php síðuna
+
+Vika4 (aukalega):
+		- Ég tók það að mér að gera meginhlutann af readme.md og github wiki síðunni vegna fjarveru minnar. Kristófer var mjög duglegur að taka kóðann sem ég var að skrifa of seint og hann hefði ekki þurft að gera það og þess vegna er ég að gera meginhlutann af readme og wiki.
+		* Bætti grunnupplýsingum við README.MD og lét Kristófer vita svo hann gæti bætt við eða breytt upplýsingum ef skyldi telja það nauðsynlegt.
+		* Skrifaði Wiki síðuna á Github og lét kristófer vita svo hann geti bætt eða breytt upplýsingum ef hann skyldi telja það nauðsynlegt.
