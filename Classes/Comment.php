@@ -22,7 +22,7 @@ class Comment
 
         try {
             $stmt->execute();
-            header("Location: $_SERVER[HTPP_REFERERER]"); // Redirect back to last page
+            header("Location: question.php?qid=$question_id");
 
         } catch (PDOException $e) {
             echo $e->getMessage();

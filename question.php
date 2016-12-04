@@ -169,12 +169,14 @@ $comments = $question->getComments($_GET['qid']);
                     </section>
                 <?php endforeach; ?>
 				
-				<!-- if isset($_SESSION[user]) -->
-				<form name="commentForm" action="process.php?" method="post">
-					<label for="comment">Write a comment:</label>
-					<textarea form="commentForm" name="comment" id="textAreaComment"></textarea>
-					<input type="submit" name="submit" value="submit comment" />
-				</form>
+				<?php if (isset($_SESSION['uid'])): ?>
+                    <form name="commentForm" action="process.php?action=newComment" method="post">
+                        <label for="comment">Write a comment:</label>
+                        <textarea name="text" id="textAreaComment"></textarea>
+                        <input type="hidden" name="question_id" value="<?= $_GET['qid']; ?>"/>
+                        <input type="submit" name="submit" value="submit comment" />
+                    </form>
+                <?php endif; ?>
 				
 			</div>
 		</section>
