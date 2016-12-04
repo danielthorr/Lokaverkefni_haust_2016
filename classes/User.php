@@ -28,7 +28,7 @@ class User
      */
     public function getUserInfo($user_id)
     {
-        $stmt = $this->connection-prepare('call GetUserInfo(?)');
+        $stmt = $this->connection->prepare('call GetUserInfo(?)');
         $stmt->bindParam(1,$user_id);
 
         try {
@@ -68,20 +68,19 @@ class User
 		}
 	}
 
-    public function updateUser($uid,$username,$password,$email,$title,$description,$country)
+    public function updateUser($uid,$realName,$email,$title,$description,$country)
     {
-        $stmt = $this->connection->prepare('call UpdateUserInfo(?,?,?,?,?,?,?)');
+        $stmt = $this->connection->prepare('call UpdateUserInfo(?,?,?,?,?,?)');
         $stmt->bindParam(1,$uid);
-        $stmt->bindParam(2,$username);
-        $stmt->bindParam(3,$password);
-        $stmt->bindParam(4,$email);
-        $stmt->bindParam(5,$title);
-        $stmt->bindParam(6,$description);
-        $stmt->bindParam(7,$country);
+        $stmt->bindParam(2,$realName);
+        $stmt->bindParam(3,$email);
+        $stmt->bindParam(4,$title);
+        $stmt->bindParam(5,$description);
+        $stmt->bindParam(6,$country);
 
         try {
             $stmt->execute();
-            header("Location: $_SERVER[HTTP_REFERERER]");
+            header("Location: profile.php?uid=$uid");
 
         } catch (PDOException $e) {
             echo $e->getMessage();
