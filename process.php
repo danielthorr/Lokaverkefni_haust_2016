@@ -95,13 +95,21 @@ switch($action) {
         if ($userExists) {
             $_SESSION['uid'] = $userInfo['id']; // User ID
             $_SESSION['username'] = $_POST['username'];
-            header("Location: Index-test.php");
+            if (isset($_SERVER['HTTP_REFERERER'])) {
+                header("Location: " . $_SERVER['HTTP_REFERERER']);
+            } else {
+                header("Location: index.php");
+            }
         }
         break;
 
     case 'logout':
         $_SESSION = []; // Eyði öllu úr $_SESSION arrayinu
-        header("Location: Index-test.php");
+        if (isset($_SERVER['HTTP_REFERERER'])) {
+            header("Location: " . $_SERVER['HTTP_REFERERER']);
+        } else {
+            header("Location: index.php");
+        }
         break;
 
     case 'updateProfilePicture':
