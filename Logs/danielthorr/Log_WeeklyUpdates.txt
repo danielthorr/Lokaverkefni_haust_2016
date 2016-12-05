@@ -46,3 +46,5 @@ Vika4 (aukalega):
 		- Ég tók það að mér að gera meginhlutann af readme.md og github wiki síðunni vegna fjarveru minnar. Kristófer var mjög duglegur að taka kóðann sem ég var að skrifa of seint og hann hefði ekki þurft að gera það og þess vegna er ég að gera meginhlutann af readme og wiki.
 		* Bætti grunnupplýsingum við README.MD og lét Kristófer vita svo hann gæti bætt við eða breytt upplýsingum ef skyldi telja það nauðsynlegt.
 		* Skrifaði Wiki síðuna á Github og lét kristófer vita svo hann geti bætt eða breytt upplýsingum ef hann skyldi telja það nauðsynlegt.
+		* Lagaði nokkra minniháttar hluti í php kóðanum
+		* Bjó til myndband sem ég sett inná youtube og setti link á wiki síðuna
